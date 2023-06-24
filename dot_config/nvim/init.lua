@@ -1,0 +1,2 @@
+require("promitheas")
+print("hello")

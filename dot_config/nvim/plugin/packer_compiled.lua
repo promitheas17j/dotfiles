@@ -79,6 +79,16 @@ _G.packer_plugins = {
     path = "/home/turing/.local/share/nvim/site/pack/packer/start/astrotheme",
     url = "https://github.com/AstroNvim/astrotheme"
   },
+  nightfly = {
+    loaded = true,
+    path = "/home/turing/.local/share/nvim/site/pack/packer/start/nightfly",
+    url = "https://github.com/bluz71/vim-nightfly-colors"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/turing/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/turing/.local/share/nvim/site/pack/packer/start/packer.nvim",

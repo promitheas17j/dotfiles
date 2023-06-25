@@ -1,0 +1,1 @@
+termguicolors = true

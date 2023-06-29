@@ -1,0 +1,37 @@
+font:
+  normal:
+    family: Cascadia Mono PL 
+    style: Regular
+  
+  bold:
+    family: Cascadia Mono PL
+    style: Bold
+
+  italic:
+    family: Cascadia Mono PL 
+    style: Italic
+
+  bold_italic:
+    family: Cascadia Mono PL
+    style: Bold Italic
+
+  size: 9.5
+
+  offset:
+    x: 0 # Letter spacing (default: 0)
+    y: 3 # Line spacing (default: 0)
+
+window:
+  opacity: 0.8
+  padding:
+    x: 10
+    y: 10
+
+  dimensions:
+    columns: 80
+    lines: 20
+
+history: 10000
+
+background: #1e222a
+

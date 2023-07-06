@@ -1,0 +1,31 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor HDMI-A-0 -d I II III IV
+
+if [[ $(xrandr -q | grep "HDMI-A-1 connected") ]];
+then
+	xrandr --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+	xrandr --output HDMI-A-1 --mode 1920x1080 --rotate inverted --above HDMI-A-0
+	bspc monitor HDMI-A-0 -d I II III IV
+	bspc monitor HDMI-A-1 -d V VI VII VIII
+
+	bspc wm -O HDMI-A-0 HDMI-A-1
+fi
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+$HOME/.config/polybar/launch.sh
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off

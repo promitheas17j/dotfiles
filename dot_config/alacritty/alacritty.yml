@@ -35,3 +35,5 @@ history: 10000
 
 background: #1e222a
 
+# selection
+save_to_clipboard: true

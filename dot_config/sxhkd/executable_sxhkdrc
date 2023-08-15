@@ -134,6 +134,10 @@ super + v
 
 Print
 	flameshot gui
+
+# Move node to node
+# super + shift + x + {h, j, k, l}
+#	bspc node --to-node {west, south, north, east}
 	
 # test keybind
 super + alt + t

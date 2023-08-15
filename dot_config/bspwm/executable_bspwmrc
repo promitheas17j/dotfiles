@@ -4,7 +4,6 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x copyq > /dev/null || copyq &
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor HDMI-A-0 -d I II III IV
 
 if [[ $(xrandr -q | grep "HDMI-A-1 connected") ]];
 then
@@ -18,6 +17,9 @@ then
 	bspc config -m HDMI-A-1 top_padding 40
 
 	bspc wm -O HDMI-A-0 HDMI-A-1
+else
+	bspc monitor HDMI-A-0 -d I II III IV V VI VII VIII
+	bspc wm -O HDMI-A-0
 fi
 
 bspc config border_width         2

@@ -5,4 +5,4 @@
 .config/dconf/
 .config/discord/
 .config/Electron/
-
+.config/gh/

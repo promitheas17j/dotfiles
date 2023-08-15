@@ -1,0 +1,8 @@
+.config/chezmoi/chezmoistate.boltdb
+.config/private_BraveSoftware/
+.config/BraveSoftware/
+.config/autostart/
+.config/dconf/
+.config/discord/
+.config/Electron/
+

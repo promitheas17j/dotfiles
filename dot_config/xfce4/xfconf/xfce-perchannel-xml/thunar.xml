@@ -14,14 +14,14 @@
   <property name="last-side-pane" type="string" value="ThunarShortcutsPane"/>
   <property name="last-separator-position" type="int" value="170"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,123,117,50,105,50,50,182,50,50,69,50,130"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,127,117,50,105,50,50,394,50,50,72,50,136"/>
   <property name="last-tabs-left" type="array">
-    <value type="string" value="file:///home/turing/Documents/Projects/dotfiles"/>
+    <value type="string" value="file:///home/mart"/>
   </property>
   <property name="last-focused-tab-left" type="int" value="0"/>
   <property name="last-focused-tab-right" type="int" value="0"/>
-  <property name="last-window-width" type="int" value="675"/>
-  <property name="last-window-height" type="int" value="706"/>
+  <property name="last-window-width" type="int" value="900"/>
+  <property name="last-window-height" type="int" value="1010"/>
   <property name="last-window-maximized" type="bool" value="false"/>
   <property name="default-view" type="string" value="ThunarDetailsView"/>
   <property name="last-details-view-visible-columns" type="string" value="THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_TYPE"/>

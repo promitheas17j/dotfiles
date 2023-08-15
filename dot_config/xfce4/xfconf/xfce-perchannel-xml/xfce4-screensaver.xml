@@ -20,4 +20,7 @@
       <property name="arguments" type="string" value="--location=/home/turing/Pictures/wallpapers/screensavers"/>
     </property>
   </property>
+  <property name="lock" type="empty">
+    <property name="sleep-activation" type="bool" value="true"/>
+  </property>
 </channel>

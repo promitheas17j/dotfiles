@@ -98,7 +98,7 @@ separator-foreground = ${colors.disabled}
 
 font-0 = monospace;2
 
-modules-left = bspwm filesystem cpu memory
+modules-left = bspwm filesystem cpu memory pulseaudio
 # xwindow
 modules-center = appname
 modules-right =  wlan eth date

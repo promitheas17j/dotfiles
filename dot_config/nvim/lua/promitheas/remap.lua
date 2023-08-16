@@ -12,5 +12,10 @@ vim.keymap.set('n', '<leader>j', '<cmd>wincmd j<CR>') -- move cursor to bottom w
 vim.keymap.set('n', '<leader>k', '<cmd>wincmd k<CR>') -- move cursor to top window
 vim.keymap.set('n', '<leader>h', '<cmd>wincmd h<CR>') -- move cursor to left window
 vim.keymap.set('n', '<leader>l', '<cmd>wincmd l<CR>') -- move cursor to right window
--- TODO: Add keybinds for moving windows around: https://neovim.io/doc/user/windows.html#window-moving
+vim.keymap.set('n', '<leader>K', '<cmd>wincmd K<CR>') -- move current window to top position
+vim.keymap.set('n', '<leader>J', '<cmd>wincmd J<CR>') -- move current window to bottom position
+vim.keymap.set('n', '<leader>H', '<cmd>wincmd H<CR>') -- move current window to left position
+vim.keymap.set('n', '<leader>L', '<cmd>wincmd L<CR>') -- move current window to right position
+
 -- TODO: Lookup keybinds for accepting autocomplete suggestions
+-- vim.keymap.set("i", " 

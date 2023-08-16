@@ -10,8 +10,8 @@ return require('packer').startup(function(use)
 	{
 		"AstroNvim/astrotheme",
 			config = function()
-			require("astrotheme").setup()
-		end,
+				require("astrotheme").setup()
+			end,
 	}
 	use
 	{
@@ -42,11 +42,4 @@ return require('packer').startup(function(use)
 		'folke/todo-comments.nvim',
 		requires = {'nvim-lua/plenary.nvim'},
 	}
-
 end)
--- TODO:
--- HACK:
--- WARN:
--- PERF:
--- NOTE:
--- TEST:

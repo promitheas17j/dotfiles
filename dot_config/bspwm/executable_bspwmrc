@@ -20,6 +20,8 @@ then
 	bspc wm -O HDMI-A-0 HDMI-A-1
 fi
 
+$HOME/.fehbg &
+
 bspc config border_width         2
 bspc config window_gap           10
 bspc config 

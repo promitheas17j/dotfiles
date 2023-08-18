@@ -36,4 +36,3 @@ setxkbmap -layout gb &
 systemctl --user import-environment DISPLAY
 exec bspwm
 exec copyq &
-~/.fehbg &

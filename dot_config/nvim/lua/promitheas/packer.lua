@@ -6,18 +6,32 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-	use
+	--[[ use
 	{
 		"AstroNvim/astrotheme",
 			config = function()
 				require("astrotheme").setup()
 			end,
+	} --]]
+	use
+	{
+		'Mofiqul/dracula.nvim',
+		config = function()
+			require('lualine').setup()
+			{
+				options = {
+					theme = 'dracula-soft'
+				}
+			}
+		end,
 	}
 	use
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = {
+			{'nvim-lua/plenary.nvim'}
+		}
 	}
 	use('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
 	use
@@ -41,5 +55,13 @@ return require('packer').startup(function(use)
 	{
 		'folke/todo-comments.nvim',
 		requires = {'nvim-lua/plenary.nvim'},
+	}
+	use
+	{
+		"nvim-lualine/lualine.nvim",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+			opts = true
+		}
 	}
 end)

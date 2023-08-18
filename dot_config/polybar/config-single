@@ -16,15 +16,39 @@
 ;
 ;==========================================================
 
+# [colors]
+# background = #282A2E
+# background-alt = #373B41
+# foreground = #C5C8C6
+# primary = #F0C674 # yellow
+# secondary = #8ABEB7 # muted green
+# alert = #A54242 # burgundy
+# disabled = #707880 # grey
+# blue = #2222AA # non-default
+
+# include-file = ~/.config/polybar/colors.ini
 [colors]
-background = #282A2E
-background-alt = #373B41
-foreground = #C5C8C6
-primary = #F0C674
-secondary = #8ABEB7
-alert = #A54242
-disabled = #707880
-blue = #2222AA
+background = #282a36
+background-alt = #44475a
+foreground = #f8f8f2
+foreground-alt = #bd93f9
+
+blue = #6272a4
+cyan = #8be9fd
+green = #50fa7b
+orange = #ffb86c
+pink = #ff79c6
+purple = #bd93f9
+red = #ff5555
+yellow = #f1fa8c
+
+black = #000
+white = #FFF
+
+trans = #00000000
+semi-trans-black = #aa000000
+semi-trans-blue = #6272A4CE
+semi-trans-cyan = #8BE9FDBC
 
 [bar/bottom]
 bottom = true
@@ -49,7 +73,7 @@ padding-right = 1
 module-margin = 1
 
 separator = |
-separator-foreground = ${colors.disabled}
+separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
 
@@ -71,50 +95,50 @@ wm-restack = bspwm
 
 ; override-redirect = true
 
-# [bar/top]
-# bottom = false
-# monitor = HDMI-A-1
-# width = 100%
-# height = 24pt
-# radius = 6
-# 
-# ; dpi = 96
-# 
-# background = ${colors.background}
-# foreground = ${colors.foreground}
-# 
-# line-size = 3pt
-# 
-# border-size = 4pt
-# border-color = #00000000
-# 
-# padding-left = 0
-# padding-right = 1
-# 
-# module-margin = 1
-# 
-# separator = |
-# separator-foreground = ${colors.disabled}
-# 
-# font-0 = monospace;2
-# 
-# modules-left = bspwm filesystem cpu memory pulseaudio
-# # xwindow
-# modules-center = appname
-# modules-right =  wlan eth date
-# 
-# cursor-click = pointer
-# cursor-scroll = ns-resize
-# 
-# enable-ipc = true
-# 
-# ; tray-position = right
-# 
-# ; wm-restack = generic
-# wm-restack = bspwm
-# ; wm-restack = i3
-# 
-# ; override-redirect = true
+[bar/top]
+bottom = false
+monitor = HDMI-A-1
+width = 100%
+height = 24pt
+radius = 6
+
+; dpi = 96
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3pt
+
+border-size = 4pt
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin = 1
+
+separator = |
+separator-foreground = ${colors.semi-trans-cyan}
+
+font-0 = monospace;2
+
+modules-left = bspwm filesystem cpu memory pulseaudio
+# xwindow
+modules-center = appname
+modules-right =  wlan eth date
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+; tray-position = right
+
+; wm-restack = generic
+wm-restack = bspwm
+; wm-restack = i3
+
+; override-redirect = true
 
 [module/bspwm]
 type = internal/bspwm
@@ -124,7 +148,7 @@ enable-scroll = false
 format = <label-state> <label-mode>
 
 label-focused = %name%
-label-focues-foreground = ${colors.primary}
+label-focused-foreground = ${colors.cyan}
 label-focused-background = ${colors.blue}
 label-focused-padding = 1
 
@@ -147,14 +171,16 @@ label-empty = %name%
 label-empty-foreground = ${colors.disabled}
 label-empty-padding = 1
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:60:...%
+# [module/xwindow]
+# type = internal/xwindow
+# label = %title:0:60:...%
 
 [module/appname]
 type = custom/script
 exec = xprop -id $(xdotool getwindowfocus) WM_CLASS | awk '{ print $4}' | sed 's/"//g' | sed -e "s/\b\(.\)/\u\1/g"
 label = [ %output% ]
+
+label-foreground = ${colors.yellow}
 
 [module/filesystem]
 type = internal/fs
@@ -162,29 +188,29 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+label-mounted = %{F#50fa7b}%mountpoint%%{F-} %percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.disabled}
+label-unmounted-foreground = ${colors.red}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume-prefix = "VOL "
-format-volume-prefix-foreground = ${colors.primary}
+format-volume-prefix-foreground = ${colors.purple}
 format-volume = <label-volume>
 
 label-volume = %percentage%%
 
 label-muted = muted
-label-muted-foreground = ${colors.disabled}
+label-muted-foreground = ${colors.red}
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 
 label-layout = %layout%
-label-layout-foreground = ${colors.primary}
+label-layout-foreground = ${colors.yellow}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -195,14 +221,14 @@ label-indicator-background = ${colors.secondary}
 type = internal/memory
 interval = 2
 format-prefix = "RAM "
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ${colors.pink}
 label = %percentage_used:2%%
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = "CPU "
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ${colors.orange}
 label = %percentage:2%%
 
 [network-base]
@@ -210,17 +236,20 @@ type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+# label-disconnected = %{F#ffb86c}%ifname%%{F#ff5555} disconnected
+label-disconnected = %{F#ffb86c}ethernet%{F#ff5555} disconnected
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
+# label-connected = %{F#ffb86c}%ifname%%{F#50fa7b} %essid% %local_ip%
+label-connected = %{F#ffb86c}wifi%{F#50fa7b} %essid% %local_ip%
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+# label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+label-connected = %{F#ffb86c}ethernet%{F#50fa7b} %local_ip%
 
 [module/date]
 type = internal/date
@@ -231,7 +260,7 @@ date-alt = %d-%m-%Y
 # %H:%M:%S
 
 label = %date%
-label-foreground = ${colors.primary}
+label-foreground = ${colors.cyan}
 
 [settings]
 screenchange-reload = true

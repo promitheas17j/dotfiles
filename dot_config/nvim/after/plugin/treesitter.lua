@@ -1,20 +1,20 @@
 require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
+  -- A list of parser names, or 'all' (the five listed parsers should always be installed)
   ensure_installed = {
-	  "c",
-	  "cpp",
-	  "lua",
-	  "vim",
-	  "vimdoc",
-	  "query",
-	  "css",
-	  "gdscript",
-	  "html",
-	  "javascript",
-	  "json",
-	  "make",
-	  "markdown",
-	  "python",
+	  'c',
+	  'cpp',
+	  'lua',
+	  'vim',
+	  'vimdoc',
+	  'query',
+	  'css',
+	  'gdscript',
+	  'html',
+	  'javascript',
+	  'json',
+	  'make',
+	  'markdown',
+	  'python',
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -24,11 +24,11 @@ require'nvim-treesitter.configs'.setup {
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
 
-  -- List of parsers to ignore installing (for "all")
-  -- ignore_install = { "javascript" },
+  -- List of parsers to ignore installing (for 'all')
+  -- ignore_install = { 'javascript' },
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+  -- parser_install_dir = '/some/path/to/store/parsers', -- Remember to run vim.opt.runtimepath:append('/some/path/to/store/parsers')!
 
   highlight = {
     enable = true,
@@ -37,7 +37,7 @@ require'nvim-treesitter.configs'.setup {
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)
     -- list of language that will be disabled
-    --disable = { "c", "rust" },
+    --disable = { 'c', 'rust' },
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     disable = function(lang, buf)
         local max_filesize = 100 * 1024 -- 100 KB

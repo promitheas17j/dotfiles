@@ -13,6 +13,18 @@ return require('packer').startup(function(use)
 				require("astrotheme").setup()
 			end,
 	} --]]
+	--[[ use
+	{
+		'Mofiqul/dracula.nvim',
+		config = function()
+			require('lualine').setup()
+			{
+				options = {
+					theme = 'dracula-soft'
+				}
+			}
+		end,
+	} ]]--
 	use
 	{
 		'Mofiqul/dracula.nvim',
@@ -23,6 +35,7 @@ return require('packer').startup(function(use)
 					theme = 'dracula-soft'
 				}
 			}
+			vim.cmd("luafile $HOME/.config/nvim/lua/promitheas/dracula.lua")
 		end,
 	}
 	use

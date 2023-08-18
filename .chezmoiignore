@@ -6,3 +6,4 @@
 .config/discord/
 .config/Electron/
 .config/gh/
+.config/nvim/plugin/*compiled*

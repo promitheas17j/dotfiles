@@ -110,3 +110,17 @@ alias nv="nvim"
 alias cm="chezmoi"
 alias qb="qbittorrent"
 alias checkhist="history | grep -e 'pacman -S\s' -e 'pacman -R\s' -e 'yay -S\s' -e 'yay -R\s' | tail -n 50 > ~/history_installed"
+
+# Set less as manpager, and theme it with dracula
+#location of less choose or modify depending on your system
+export MANPAGER="/usr/bin/less -s -M +Gg" 		#standard linux
+
+#man-page colors
+export LESS_TERMCAP_mb=$'\e[1;31m'      # begin bold
+export LESS_TERMCAP_md=$'\e[1;34m'      # begin blink
+export LESS_TERMCAP_so=$'\e[01;45;37m'  # begin reverse video
+export LESS_TERMCAP_us=$'\e[01;36m'     # begin underline
+export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
+export GROFF_NO_SGR=1                   # for konsole

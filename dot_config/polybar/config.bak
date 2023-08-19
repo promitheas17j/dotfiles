@@ -29,8 +29,7 @@ blue = #2222AA
 [bar/bottom]
 bottom = true
 monitor = HDMI-A-0
-width = 50%
-# width = 100%
+width = 100%
 height = 24pt
 radius = 6
 

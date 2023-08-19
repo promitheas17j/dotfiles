@@ -7,3 +7,5 @@
 .config/Electron/
 .config/gh/
 .config/nvim/plugin/*compiled*
+.config/copyq/copyq.pub
+.config/copyq/*.dat

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+PACCACHE_DIR='/var/cache/pacman/pkg/'
+
+echo "Num packages in cache:"
+ls ${PACCACHE_DIR} | wc -l
+
+echo "Size of cache:"
+du -sh ${PACCACHE_DIR}
+
+

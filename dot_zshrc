@@ -110,6 +110,8 @@ alias nv="nvim"
 alias cm="chezmoi"
 alias qb="qbittorrent"
 alias checkhist="history | grep -e 'pacman -S\s' -e 'pacman -R\s' -e 'yay -S\s' -e 'yay -R\s' | tail -n 50 > ~/history_installed"
+alias ednv="cd $HOME/.config/nvim/ && nv ."
+alias edqa="cd $HOME/Documents/Projects/quickarch && nv ."
 
 # Set less as manpager, and theme it with dracula
 #location of less choose or modify depending on your system
@@ -124,3 +126,6 @@ export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
 export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
 export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
 export GROFF_NO_SGR=1                   # for konsole
+
+bindkey '^H' backward-kill-word
+bindkey '5~' kill-word

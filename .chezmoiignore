@@ -1,11 +1,33 @@
-.config/chezmoi/chezmoistate.boltdb
+# Directories
+.config/procps/
+.config/projectM/
+.config/pulse/
+.config/qBittorrent/
+.config/Thunar/
+.config/vlc/
+.config/xfce4/
+.config/yay/
+.config/gh/
 .config/private_BraveSoftware/
 .config/BraveSoftware/
 .config/autostart/
+.config/Beeper/
 .config/dconf/
 .config/discord/
 .config/Electron/
-.config/gh/
+.config/flameshot/
+.config/gtk-2.0/
+.config/gtk-3.0/
+.config/mpv/
+.config/neofetch/
+.config/Netflix/
+
+# Files
+.config/chezmoi/chezmoistate.boltdb
+.config/mimeapps.list
+.config/pavucontrol.ini
+.config/QtProject.conf
 .config/nvim/plugin/*compiled*
 .config/copyq/copyq.pub
 .config/copyq/*.dat
+

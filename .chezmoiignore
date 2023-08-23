@@ -1,4 +1,5 @@
 # Directories
+.oh-my-zsh/
 .config/procps/
 .config/projectM/
 .config/pulse/

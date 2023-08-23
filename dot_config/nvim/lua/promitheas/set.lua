@@ -9,3 +9,5 @@ vim.opt.expandtab = false
 vim.opt.wrap = true
 
 vim.opt.hlsearch = true
+
+vim.opt.clipboard = 'unnamedplus'

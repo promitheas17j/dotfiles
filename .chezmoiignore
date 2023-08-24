@@ -30,5 +30,8 @@
 .config/QtProject.conf
 .config/nvim/plugin/*compiled*
 .config/copyq/copyq.pub
-.config/copyq/*.dat
-
+.config/copyq/*.dat*
+.config/copyq/*-*
+.config/copyq/*.ini*
+.config/copyq/*.lock*
+.config/copyq/*.pub*

@@ -107,6 +107,7 @@ alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
 alias nv="nvim"
+alias snv="sudoedit" # Edit files with sudo nvim while preserving configs
 alias cm="chezmoi"
 alias qb="qbittorrent"
 alias checkhist="history | grep -e 'pacman -S\s' -e 'pacman -R\s' -e 'yay -S\s' -e 'yay -R\s' | tail -n 50 > ~/history_installed"

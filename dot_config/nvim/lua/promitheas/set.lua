@@ -11,3 +11,5 @@ vim.opt.wrap = true
 vim.opt.hlsearch = true
 
 vim.opt.clipboard = 'unnamedplus'
+
+vim.opt.formatoptions:remove({'c', 'r', 'o' })

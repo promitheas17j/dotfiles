@@ -59,9 +59,9 @@ label-layout = %layout%
 label-layout-foreground = ${colors.yellow}
 label-layout-underline = ${colors.yellow}
 
-label-indicator-padding = 2
+label-indicator-padding = 0
 label-indicator-margin = 1
-label-indicator-foreground = ${colors.background}
+label-indicator-foreground = ${colors.yellow}
 label-indicator-background = ${colors.secondary}
 
 [module/memory]

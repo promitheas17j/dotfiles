@@ -103,9 +103,9 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias la="ls -a"
-alias ll="ls -l"
-alias lla="ls -la"
+alias la="ls -ah"
+alias ll="ls -lh"
+alias lla="ls -lah"
 alias nv="nvim"
 alias snv="sudoedit" # Edit files with sudo nvim while preserving configs
 alias cm="chezmoi"

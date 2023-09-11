@@ -41,7 +41,7 @@ FiscYearDay=1
 FiscYearMonth=1
 
 [Windows]
-Wal=0;30;1366;714;1;
+Wal=1003;1090;903;1014;1;
 Acc=87;95;1230;600;0;
 Sta=0;30;1309;683;0;
 Tme=0;30;819;501;0;
@@ -50,7 +50,7 @@ Bud=0;30;1034;607;0;
 Car=0;0;819;480;0;
 Txn=0;0;351;-1;0;
 DBud=0;0;0;0;0;
-WalVPaned=484
+WalVPaned=284
 WalHPaned=512
 WalToolbar=true
 WalSpending=true

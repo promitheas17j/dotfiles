@@ -1,6 +1,5 @@
 #! /bin/sh
 
-source ~/.zshrc
 pgrep -x sxhkd > /dev/null || sxhkd -s &
 pgrep -x copyq > /dev/null || copyq &
 
@@ -48,3 +47,4 @@ bspc rule -a Screenkey manage=off
 
 
 $HOME/.config/polybar/launch.sh
+betterlockscreen -u $HOME/Pictures/wallpapers/ --fx dim --dim 50

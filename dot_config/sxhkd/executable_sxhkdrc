@@ -145,5 +145,5 @@ super + x
 # test keybind
 super + alt + t
 # super + space
-	alacritty -e echo "test"
+	alacritty --hold -e neofetch # hold option seems not to work through rofi
 

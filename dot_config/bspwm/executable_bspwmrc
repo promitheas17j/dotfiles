@@ -44,9 +44,7 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-# if [[ $(xrandr -q | grep "HDMI-A-1 connected") ]];
-# then
-
+bspc rule -a scpad sticky=on state=floating rectangle=1896x400+10+50
 
 $HOME/.config/polybar/launch.sh
 betterlockscreen -u $HOME/Pictures/wallpapers/ --fx dim --dim 50

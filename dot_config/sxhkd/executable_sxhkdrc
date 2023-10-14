@@ -14,6 +14,12 @@ super + @space
 	# rofi -show drun -log ~/rofi.log
 	# $HOME/.bin/start_rofi.sh
 
+super + r
+	rofi -show run
+
+super + alt + k
+	~/.bin/keybind_cheatsheet.sh
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -usr1 -x sxhkd

@@ -18,7 +18,7 @@ label-empty-foreground = ${colors.foreground}
 
 [module/appname]
 type = custom/script
-exec = echo "HI"
+exec = xprop -id $(xdotool getwindowfocus) WM_CLASS | awk '{ print $4}' | sed 's/"//g' | sed -e "s/\b\(.\)/\u\1/g"
 label = [ %output% ]
 
 label-foreground = ${colors.yellow}

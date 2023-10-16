@@ -11,7 +11,7 @@ lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 
   vim.keymap.set('n', 'gr', '<cmd>print "Hello"<cr>', {buffer = true})
-  vim.key
+  -- vim.key
 end)
 
 lsp.setup()

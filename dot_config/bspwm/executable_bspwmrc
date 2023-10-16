@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd -s &
 pgrep -x copyq > /dev/null || copyq &
-# pgrep -x xfce4-power-manager > /dev/null || xfce4-power-manager &
+pgrep -x xfce4-power-manager > /dev/null || xfce4-power-manager &
 pgrep -x dunst > /dev/null || dunst &
 
 # bspc monitor -d I II III IV V VI VII VIII IX X

@@ -16,7 +16,8 @@
 
 configuration {
     show-icons:      true;
-    display-drun:    "";
+    display-drun:    "drun";
+    display-keys:    "keybinds";
     disable-history: false;
 	modi: "window,drun,ssh,combi,run,keys";
 }

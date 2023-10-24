@@ -1,0 +1,3 @@
+#!/bin/sh
+
+qemu-system-x86_64 -enable-kvm -m 4G -cpu host -smp 2 -vga virtio -display sdl,gl=on -device nec-usb-xhci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -device usb-mouse $HOME/Projects/VMs/Kali.img

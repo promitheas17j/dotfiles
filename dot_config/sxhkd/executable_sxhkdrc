@@ -132,13 +132,17 @@ super + v
 Print
 	flameshot gui
 
+# Start recording screen or area (doesn't currently work)
+alt + Print
+	alacritty --hold -e home/$USER/.bin/screcord.sh
+
 # Lock the screen
 super + x
 	betterlockscreen -l dim 
 
 # Launch a scratchpad
 super + alt + p
-	~/.bin/scpad scpad
+	~/.bin/scpad 
 
 # All binary program launcher
 super + r

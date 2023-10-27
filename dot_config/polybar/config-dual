@@ -47,9 +47,9 @@ separator-foreground = ${colors.semi-trans-cyan}
 font-0 = monospace;2
 
 modules-left = bspwm xkeyboard pulseaudio
-# xwindow
 modules-center = appname
-modules-right =   wlan eth date
+modules-right = date 
+; wlan eth removed from left of date module
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -94,14 +94,15 @@ font-0 = monospace;2
 modules-left = bspwm filesystem cpu memory pulseaudio
 # xwindow
 modules-center = appname
-modules-right =  wlan eth date
+modules-right =  tray date ; tray built-in module not yet in polybar version 3.6.3 so it wont work just yet. need to use the old way below (tray-position = <left/centre/right>)
+; wlan eth removed from left of tray module
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 enable-ipc = true
 
-; tray-position = right
+tray-position = right
 
 ; wm-restack = generic
 wm-restack = bspwm

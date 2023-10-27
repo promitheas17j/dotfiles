@@ -113,3 +113,7 @@ date-alt = %d-%m-%Y
 label = %date%
 label-foreground = ${colors.cyan}
 label-underline = ${colors.cyan}
+
+[module/tray]
+type = internal/tray
+

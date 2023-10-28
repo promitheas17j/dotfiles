@@ -68,6 +68,11 @@ return require('packer').startup(function(use)
 	use 'ThePrimeagen/vim-be-good'
 	use 'm4xshen/autoclose.nvim'
 
+	use 'scrooloose/nerdtree'
+	use 'tiagofumo/vim-nerdtree-syntax-highlight'
+	use 'ryanoasis/vim-devicons'
+
+	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then
 		 require('packer').sync()
 	end

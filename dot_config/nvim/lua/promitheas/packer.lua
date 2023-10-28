@@ -19,41 +19,10 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-	--[[ use
-	{
-		"AstroNvim/astrotheme",
-			config = function()
-				require("astrotheme").setup()
-			end,
-	} --]]
-	--[[ use
-	{
-		'Mofiqul/dracula.nvim',
-		config = function()
-			require('lualine').setup()
-			{
-				options = {
-					theme = 'dracula-soft'
-				}
-			}
-		end,
-	} ]]--
+	use('Mofiqul/dracula.nvim')
 	use
 	{
-		'Mofiqul/dracula.nvim',
-		config = function()
-			require('lualine').setup()
-			{
-				options = {
-					theme = 'dracula-soft'
-				}
-			}
-			vim.cmd("luafile $HOME/.config/nvim/lua/promitheas/dracula.lua")
-		end,
-	}
-	use
-	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		'nvim-telescope/telescope.nvim', -- tag = '0.1.1',
 		-- or                            , branch = '0.1.x',
 		requires = {
 			{'nvim-lua/plenary.nvim'}
@@ -67,7 +36,12 @@ return require('packer').startup(function(use)
 		requires = {
 			-- LSP Support
 			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Optional
+			{
+				'williamboman/mason.nvim',
+				run = function()
+					pcall(vim.cmd, 'MasonUpdate')
+				end,
+			},           -- Optional
 			{'williamboman/mason-lspconfig.nvim'}, -- Optional
 
 			-- Autocompletion
@@ -82,12 +56,13 @@ return require('packer').startup(function(use)
 		'folke/todo-comments.nvim',
 		requires = {'nvim-lua/plenary.nvim'},
 	}
+	use('nvim-tree/nvim-tree.lua')
 	use
 	{
-		"nvim-lualine/lualine.nvim",
+		'nvim-lualine/lualine.nvim',
 		requires = {
-			"nvim-tree/nvim-web-devicons",
-			opts = true
+			'nvim-tree/nvim-web-devicons',
+			opt = true
 		}
 	}
 	use 'ThePrimeagen/vim-be-good'

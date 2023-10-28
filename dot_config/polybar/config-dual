@@ -83,7 +83,7 @@ border-color = #00000000
 
 padding-left = 0
 # padding-right = 1
-padding-right = 10 ; change this back to value of 1 when tray becomes an internal module
+padding-right = 16 ; change this back to value of 1 when tray becomes an internal module
 
 module-margin = 1
 
@@ -92,10 +92,10 @@ separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
 
-modules-left = bspwm filesystem cpu memory pulseaudio
+modules-left = bspwm date filesystem cpu memory pulseaudio ; move date module back to right once tray becomes a module
 # xwindow
 modules-center = appname
-modules-right =  tray date ; tray built-in module not yet in polybar version 3.6.3 so it wont work just yet. need to use the old way below (tray-position = <left/centre/right>)
+# modules-right =  date ; tray built-in module not yet in polybar version 3.6.3 so it wont work just yet. need to use the old way below (tray-position = <left/centre/right>)
 ; wlan eth removed from left of tray module
 
 cursor-click = pointer

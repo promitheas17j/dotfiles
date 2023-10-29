@@ -92,7 +92,8 @@ separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
 
-modules-left = bspwm date filesystem cpu memory pulseaudio ; move date module back to right once tray becomes a module
+modules-left = bspwm date filesystem cpu memory pulseaudio
+# move date module back to right once tray becomes a module
 # xwindow
 modules-center = appname
 # modules-right =  date ; tray built-in module not yet in polybar version 3.6.3 so it wont work just yet. need to use the old way below (tray-position = <left/centre/right>)

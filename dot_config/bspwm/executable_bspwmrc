@@ -5,7 +5,7 @@ pgrep -x copyq > /dev/null || copyq &
 pgrep -x xfce4-power-manager > /dev/null || xfce4-power-manager &
 pgrep -x dunst > /dev/null || dunst &
 pgrep -x nm-applet > /dev/null || nm-applet &
-pgrep -x picom > /dev/null || picom &
+pgrep -x picom > /dev/null || picom -b
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
 bspc monitor HDMI-A-0 -d 1 2 3 4
@@ -45,6 +45,7 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a Zathura state=tiled
 
 bspc rule -a scpad sticky=on state=floating rectangle=1896x400+10+50
 

@@ -109,6 +109,7 @@ alias lla="ls -lah"
 alias nv="nvim"
 alias snv="sudoedit" # Edit files with sudo nvim while preserving configs
 alias cm="chezmoi"
+alias cme="chezmoi edit"
 alias qb="qbittorrent"
 alias checkhist="history | grep -e 'pacman -S\s' -e 'pacman -R\s' -e 'yay -S\s' -e 'yay -R\s' | tail -n 50 > ~/history_installed"
 alias ednv="cd $HOME/.config/nvim/ && nv ."

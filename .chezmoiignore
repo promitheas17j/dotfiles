@@ -35,3 +35,7 @@
 .config/copyq/*.ini*
 .config/copyq/*.lock*
 .config/copyq/*.pub*
+.confiig/hexchat/*
+
+# But do not ignore these files
+!.config/hexchat/colors.conf

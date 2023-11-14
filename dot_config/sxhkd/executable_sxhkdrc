@@ -6,7 +6,7 @@
 super + Return
 	alacritty
 
-# Desktop program launcher
+# Desktop program launcher (rofi)
 super + @space
 	rofi -show drun
 
@@ -42,11 +42,11 @@ super + g
 # state/flags     #
 ###################
 
-# Set the window state
+# Set the window state (tiled/pseudo/floating/fullscreen)
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# Set the node flags
+# Set the node flags (marked/locked/sticky/private)
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
@@ -54,7 +54,7 @@ super + ctrl + {m,x,y,z}
 # focus/swap     #
 ##################
 
-# Focus the node in the given direction
+# Focus the node in the given direction (switch to) (use shift to swap places)
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
@@ -62,11 +62,11 @@ super + {_,shift + }{h,j,k,l}
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# Focus the next/previous window in the current desktop
+# Focus the next/previous window in the current desktop (cycle through windows on current desktop)
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
-# Focus the next/previous desktop in the current monitor
+# Focus the next/previous desktop in the current monitor (cycle through current monitor desktops)
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
@@ -92,7 +92,7 @@ super + {_,shift + }{1-9,0}
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# Preselect the ratio
+# Preselect the ratio (preselect direction AND new window size)
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
@@ -108,11 +108,11 @@ super + ctrl + shift + space
 # move/resize     #
 ###################
 
-# Expand a window by moving one of its side outward
+# Expand a window by moving one of its side outward (resize window)
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# Contract a window by moving one of its side inward
+# Contract a window by moving one of its side inward (resize window)
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
@@ -148,7 +148,7 @@ super + alt + p
 super + r
 	rofi -show run
 
-# Launch a searchable list of keybinds
+# Launch a searchable list of keybinds (shortcuts)
 super + alt + y
 	~/.bin/keybind_cheatsheet.sh
 

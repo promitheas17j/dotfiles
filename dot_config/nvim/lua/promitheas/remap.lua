@@ -21,4 +21,5 @@ vim.keymap.set('n', '<leader>L', '<cmd>wincmd L<CR>') -- move current window to 
 -- TODO: Lookup keybinds for accepting autocomplete suggestions
 -- vim.keymap.set("i", " 
 
+-- TODO: Create mapping to lookup vim keybindings in general, not just telescope ones
 vim.api.nvim_set_keymap('n', '<leader>kb', '<cmd>Telescope keymaps<cr>', {noremap = true}) -- show a list of keybinds

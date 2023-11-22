@@ -23,3 +23,15 @@ vim.keymap.set('n', '<leader>L', '<cmd>wincmd L<CR>') -- move current window to 
 
 -- TODO: Create mapping to lookup vim keybindings in general, not just telescope ones
 vim.api.nvim_set_keymap('n', '<leader>kb', '<cmd>Telescope keymaps<cr>', {noremap = true}) -- show a list of keybinds
+
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-w>', {noremap = true})
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+vim.keymap.set("n", "Q", "<nop>")

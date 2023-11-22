@@ -15,6 +15,13 @@ require'nvim-treesitter.configs'.setup {
 	  'make',
 	  'markdown',
 	  'python',
+	  'latex',
+	  'diff',
+	  'gitignore',
+	  'git_config',
+	  'gitcommit',
+	  'sql',
+	  'sxhkdrc',
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

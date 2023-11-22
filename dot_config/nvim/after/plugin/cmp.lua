@@ -7,18 +7,34 @@ end)
 lsp.setup()
 
 local cmp = require('cmp')
+local lsp = require('lsp-zero').preset({})
 
 cmp.setup({
-sources = {
+	sources = cmp.config.sources({
 		{name = 'nvim_lsp'},
-		{name = 'buffer'},
-		{name = 'cmp-path'},
-		{name = 'cmp-luasnip'},
-	},
+		{name = 'buffer', keyword_length = 5},
+		{name = 'path'},
+		{name = 'luasnip'},
+		{name = 'nvim_lua'},
+	}),
 	mapping = {
-		['<CR>'] = cmp.mapping.confirm({select = false}),
-		-- ['<Tab>'] = cmp_action.tab_complete(),
-		-- ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-	    -- ['<C-b>'] = cmp_action.luasnip_jump_backward(),	
+		['<Tab>'] = cmp.mapping.confirm({select = true}),
+		['<C-k>'] = cmp.mapping.select_prev_item(),
+		['<C-j>'] = cmp.mapping.select_next_item(),
+		['<C-Space>'] = cmp.mapping.complete(),
+
 	},
+	snippet = {
+		expand = function(args)
+			local luasnip = require("luasnip")
+			if not luasnip then
+				return
+			end
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	experimental = {
+		ghost_text = true,
+	}
+
 })

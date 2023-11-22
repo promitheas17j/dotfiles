@@ -76,6 +76,8 @@ return require('packer').startup(function(use)
 	use 'tiagofumo/vim-nerdtree-syntax-highlight'
 	use 'ryanoasis/vim-devicons'
 
+	use('theprimeagen/harpoon')
+
 	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then
 		 require('packer').sync()

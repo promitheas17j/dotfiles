@@ -1,5 +1,5 @@
-require("promitheas.options")
+require("promitheas.autocommands")
+require("promitheas.colorscheme")
 require("promitheas.remap")
 require("promitheas.packer")
 require("promitheas.set")
-require("promitheas.autocommands")

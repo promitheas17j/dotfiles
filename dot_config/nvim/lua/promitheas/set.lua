@@ -19,3 +19,8 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
+
+vim.opt.list = true
+vim.opt.listchars:append("space:·")
+vim.opt.listchars:remove("trail")
+vim.opt.listchars:append("tab:| ")

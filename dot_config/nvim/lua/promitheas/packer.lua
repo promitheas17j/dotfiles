@@ -18,7 +18,7 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+	use('wbthomason/packer.nvim')
 	use('Mofiqul/dracula.nvim')
 	use
 	{
@@ -69,14 +69,16 @@ return require('packer').startup(function(use)
 			opt = true
 		}
 	}
-	use 'ThePrimeagen/vim-be-good'
-	use 'm4xshen/autoclose.nvim'
+	use('ThePrimeagen/vim-be-good')
+	use('m4xshen/autoclose.nvim')
 
-	use 'scrooloose/nerdtree'
-	use 'tiagofumo/vim-nerdtree-syntax-highlight'
-	use 'ryanoasis/vim-devicons'
+	use('scrooloose/nerdtree')
+	use('tiagofumo/vim-nerdtree-syntax-highlight')
+	use('ryanoasis/vim-devicons')
 
 	use('theprimeagen/harpoon')
+
+	use('lukas-reineke/indent-blankline.nvim')
 
 	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then

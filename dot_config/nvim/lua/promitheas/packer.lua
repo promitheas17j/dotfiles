@@ -19,7 +19,10 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use('wbthomason/packer.nvim')
+
+	-- Theme
 	use('Mofiqul/dracula.nvim')
+	
 	use
 	{
 		'nvim-telescope/telescope.nvim', -- tag = '0.1.1',
@@ -29,7 +32,10 @@ return require('packer').startup(function(use)
 		}
 	}
 	use('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
+
 	use {'saadparwaiz1/cmp_luasnip'}
+
+	-- LSP support
 	use
 	{
 		'VonHeikemen/lsp-zero.nvim',
@@ -55,12 +61,16 @@ return require('packer').startup(function(use)
 		}
 	}
 	use('tpope/vim-fugitive')
+
+	-- Highlight and search through certain keywords in comments
 	use
 	{
 		'folke/todo-comments.nvim',
 		requires = {'nvim-lua/plenary.nvim'},
 	}
 	use('nvim-tree/nvim-tree.lua')
+
+	-- Status bar on bottom of active buffer
 	use
 	{
 		'nvim-lualine/lualine.nvim',
@@ -69,16 +79,26 @@ return require('packer').startup(function(use)
 			opt = true
 		}
 	}
-	use('ThePrimeagen/vim-be-good')
-	use('m4xshen/autoclose.nvim')
 
+	use('ThePrimeagen/vim-be-good')
+
+	-- Autocomplete brackets
+	-- use('m4xshen/autoclose.nvim')
+	use('windwp/nvim-autopairs')
+
+	-- Nerdtree (nvim file manager)
 	use('scrooloose/nerdtree')
 	use('tiagofumo/vim-nerdtree-syntax-highlight')
 	use('ryanoasis/vim-devicons')
 
+	-- Jumping between marked files easily
 	use('theprimeagen/harpoon')
 
+	-- Displaying tabs
 	use('lukas-reineke/indent-blankline.nvim')
+	
+	-- Commenting
+	use('tpope/vim-commentary')
 
 	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then

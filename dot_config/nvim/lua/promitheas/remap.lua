@@ -35,3 +35,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "Q", "<nop>")
+
+-- Map ctrl+s to save the file
+vim.keymap.set("n", "<C-s>", ":w<CR>")
+vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>a")
+
+-- Map qq to quit neovim
+vim.keymap.set("n", "qq", "<Esc>:q<CR>")

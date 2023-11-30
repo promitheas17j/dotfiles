@@ -115,6 +115,11 @@ alias ednv="cd $HOME/.config/nvim/ && nv ."
 alias edqa="cd $HOME/Projects/quickarch && nv ."
 alias 2024="echo 'The year of the linux desktop'"
 
+# xdg-mime aliases to make querying and setting default apps by filetype easier
+alias xqf="xdg-mime query filetype" # Queries the xdg name of a filetype e.g. image/png
+alias xqd="xdg-mime query default" # Queries the default application for a filetype
+alias xsd="xdg-mime default" # Sets the default app. Should have the form xsd app.desktop example/extension e.g. xsd feh.desktop image/png
+
 # Set less as manpager, and theme it with dracula
 #location of less choose or modify depending on your system
 export MANPAGER="/usr/bin/less -s -M +Gg" 		#standard linux

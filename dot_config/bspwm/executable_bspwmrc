@@ -55,5 +55,3 @@ bspc rule -a Zathura state=tiled
 bspc rule -a scpad sticky=on state=floating rectangle=1896x400+10+50
 
 betterlockscreen -u $HOME/Pictures/wallpapers/ --fx dim --dim 50
-
-setxkbmap -option caps:swapescape

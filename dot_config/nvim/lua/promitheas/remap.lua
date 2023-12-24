@@ -42,3 +42,7 @@ vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>a")
 
 -- Map qq to quit neovim
 vim.keymap.set("n", "qq", "<Esc>:q<CR>")
+
+
+vim.keymap.set("v", "<C-c>", "y")
+vim.keymap.set("n", "<C-v>", "p")

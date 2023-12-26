@@ -84,7 +84,8 @@ return require('packer').startup(function(use)
 
 	-- Autocomplete brackets
 	-- use('m4xshen/autoclose.nvim')
-	use('windwp/nvim-autopairs')
+	-- use('windwp/nvim-autopairs')
+	use("windwp/nvim-autopairs")
 
 	-- Nerdtree (nvim file manager)
 	use('scrooloose/nerdtree')

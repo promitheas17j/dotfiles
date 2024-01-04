@@ -4,7 +4,7 @@ pin-workspace = true
 enable-scroll = false
 
 format = <label-state> <label-mode>
-label-occupied-foreground = ${colors.yellow}
+label-occupied-foreground = ${colors.purple}
 
 label-focused = %name%
 label-focused-foreground = ${colors.cyan}

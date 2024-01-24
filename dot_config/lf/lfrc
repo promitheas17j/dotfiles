@@ -1,0 +1,106 @@
+# Basic settings
+set ignorecase true
+set icons
+set drawbox true
+set relativenumber
+
+# Previewer
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+
+# Custom functions
+cmd mkdir %{{
+	printf "Directory name: "
+	read ans
+	mkdir $ans
+}}
+
+cmd mkfile %{{
+	printf "File name: "
+	read ans
+	touch $ans
+}}
+
+cmd chmod %{{
+	printf "Mode bits: "
+	read ans
+
+	for file in "$fx" do
+		chmod $ans $file
+	done
+}}
+
+cmd fzf_jump ${{
+	res="$(fd --max-depth 4 | fzf --reverse --header='Jump to location')"
+	if [ -f "$res" ]; then
+		cmd="select"
+	elif [ -d "$res" ]; then
+		cmd="cd"
+	else
+		exit 0
+	fi
+	lf -remote "send $id $cmd \"$res\""
+}}
+
+# Archiving bindings
+cmd unarchive ${{
+	case "$f" in
+		*.zip) unzip "$f" ;;
+		*.tar.gz) tar -xzvf "$f" ;;
+		*.tar.bz2) tar -xjvf "$f" ;;
+		*.tar) tar -xvf "$f" ;;
+		*.rar) unrar x "$f" ;;
+		*) echo "Unsupported format. If you think it should be, try adding it to lfrc" ;;
+	esac
+}}
+
+cmd tar %{{
+	set -f
+	printf "Archive name: "
+	read ans
+	mkdir $ans
+	for i in $fx do
+		cp -r $i $ans
+	done
+	tar czf $ans.tar.gz $ans
+	rm -rf $ans
+}}
+
+cmd zip %{{
+	set -f
+	mkdir $1
+	cp -r $fs $1
+	zip -r $1.zip $1
+	rm -rf $1
+}}
+
+# Clear some bindings
+map m
+map f
+
+map au unarchive
+map at tar			# [A]rchive [T]ar
+map az zip			# [A]rchive [Z]ip
+map . set hidden!
+map x cut
+map DD delete
+map p paste
+map y copy
+map <enter> open
+map R reload
+map mf mkfile
+map md mkdir
+map C clear
+map f fzf_jump
+
+# Movement to common directories
+map gd cd ~/Documents/
+map gD cd ~/Downloads/
+map gP cd ~/Pictures/
+map gp cd ~/Projects/
+map gc cd ~/.config/
+map gb cd ~/.bin/
+map gG cd ~/Games/
+map gr cd /

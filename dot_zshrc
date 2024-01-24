@@ -136,3 +136,12 @@ export GROFF_NO_SGR=1                   # for konsole
 
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
+
+# Source lfcd.sh so that working directory of shell changes to working directory of lf on lf exit
+LFCD="$HOME/.config/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+	source "$LFCD"
+fi
+
+# lfcd.sh script allows for changing the working directory on exit. aliasing it to lf
+alias lf="lfcd"

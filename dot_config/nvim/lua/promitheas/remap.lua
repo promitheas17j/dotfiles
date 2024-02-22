@@ -18,8 +18,7 @@ vim.keymap.set('n', '<leader>H', '<cmd>wincmd H<CR>') -- move current window to 
 vim.keymap.set('n', '<leader>L', '<cmd>wincmd L<CR>') -- move current window to right position
 
 -- CTRL-Backspace to delete previous word
--- FIX: ctrl+backspace not deleting entire word in nvim
-vim.api.nvim_set_keymap('i', '<C-H>', '<C-w>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-w>', {noremap = true})
 
 -- TODO: Create mapping to lookup vim keybindings in general, not just telescope ones (might just do this with rofi tbh)
 vim.api.nvim_set_keymap('n', '<leader>kb', '<cmd>Telescope keymaps<cr>', {noremap = true}) -- show a list of keybinds

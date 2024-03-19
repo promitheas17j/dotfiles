@@ -35,6 +35,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<C-Q>", "<nop>") -- unbind Ctrl+Q from visual block mode so that QQ exits without saving
+
+-- Remap visual block mode
+-- vim.keymap.set("n", "<C-B>", "<cmd>lua require('functions').enter_visual_block()<CR>", {noremap = true, silent = true})
+
 
 -- Map ctrl+s to save the file
 vim.keymap.set("n", "<C-s>", ":w<CR>")
@@ -42,6 +47,8 @@ vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>a")
 
 -- Map qq to quit neovim
 vim.keymap.set("n", "qq", "<Esc>:q<CR>")
+-- Map QQ to force quit neovim without saving
+vim.keymap.set("n", "QQ", "<Esc>:q!<CR>")
 
 
 vim.keymap.set("v", "<C-c>", "y")

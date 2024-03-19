@@ -1,28 +1,30 @@
 # Directories
-.oh-my-zsh/
-.config/procps/
-.config/projectM/
-.config/pulse/
-.config/qBittorrent/
-.config/Thunar/
-.config/vlc/
-.config/xfce4/
-.config/yay/
-.config/gh/
-.config/private_BraveSoftware/
-.config/BraveSoftware/
-.config/autostart/
-.config/Beeper/
-.config/dconf/
-.config/discord/
-.config/Electron/
-.config/flameshot/
-.config/gtk-2.0/
-.config/gtk-3.0/
-.config/mpv/
-.config/neofetch/
-.config/Netflix/
-.config/Beeper/
+.oh-my-zsh/**
+.config/procps/**
+.config/projectM/**
+.config/pulse/**
+.config/qBittorrent/**
+.config/Thunar/**
+.config/vlc/**
+.config/xfce4/**
+.config/yay/**
+.config/gh/**
+.config/private_BraveSoftware/**
+.config/BraveSoftware/**
+.config/autostart/**
+.config/dconf/**
+.config/discord/**
+.config/Electron/**
+.config/flameshot/**
+.config/gtk-2.0/**
+.config/gtk-3.0/**
+.config/mpv/**
+.config/neofetch/**
+.config/Netflix/**
+.config/Beeper/**
+.config/Ledger\ Live/**
+.config/hexchat/**
+.config/unity3d/**
 
 # Files
 .config/chezmoi/chezmoistate.boltdb
@@ -40,3 +42,4 @@
 
 # But do not ignore these files
 !.config/hexchat/colors.conf
+!.config/hexchat/hexchat.conf

@@ -12,7 +12,7 @@ super + @space
 
 # Reload sxhkd
 super + Escape
-	pkill -usr1 -x sxhkd
+	pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloading config'
 
 ##########################
 # bspwm hotkeys          #
@@ -81,8 +81,16 @@ super + {o,i}
 	bspc wm -h on
 
 # Focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# super + {_,shift + }{1-9,0}
+	# bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Focus given desktop
+super + {0-9}
+	bspc desktop {0-9} -f
+
+# Send to the given desktop
+super + shift + {0-9}
+	bspc node -d {0-9}
 
 ################
 # preselect    #

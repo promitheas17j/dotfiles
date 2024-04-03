@@ -8,9 +8,6 @@ pgrep -x nm-applet > /dev/null || nm-applet &
 pgrep -x picom > /dev/null || picom -b
 pgrep -x polybar > /dev/null || $HOME/.config/polybar/launch.sh
 
-# bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor HDMI-A-0 -d 1 2 3 4
-
 if [[ $(xrandr -q | grep "HDMI-A-1 connected") ]];
 then
 	xrandr --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
@@ -27,10 +24,14 @@ then
 	bspc config -m HDMI-A-1 top_padding 40
 
 	bspc wm -O HDMI-A-0 HDMI-A-1
+else
+	# bspc monitor -d I II III IV V VI VII VIII IX X
+	bspc monitor HDMI-A-0 -d 1 2 3 4
 fi
 
 $HOME/.fehbg &
 
+setxkbmap us
 $HOME/.bin/remap-caps-esc
 
 bspc config border_width         2

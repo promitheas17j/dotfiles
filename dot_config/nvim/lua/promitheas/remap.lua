@@ -20,7 +20,7 @@ vim.keymap.set('n', '<leader>L', '<cmd>wincmd L<CR>') -- move current window to 
 -- CTRL-Backspace to delete previous word
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-w>', {noremap = true})
 
--- TODO: Create mapping to lookup vim keybindings in general, not just telescope ones (might just do this with rofi tbh)
+-- TODO: Create mapping to lookup vim keybindings in general, not just telescope ones (might just do this with rofi at the sxhkd level tbh)
 vim.api.nvim_set_keymap('n', '<leader>kb', '<cmd>Telescope keymaps<cr>', {noremap = true}) -- show a list of keybinds
 
 -- Move selected chunk up/down
@@ -50,6 +50,14 @@ vim.keymap.set("n", "qq", "<Esc>:q<CR>")
 -- Map QQ to force quit neovim without saving
 vim.keymap.set("n", "QQ", "<Esc>:q!<CR>")
 
-
 vim.keymap.set("v", "<C-c>", "y")
 vim.keymap.set("n", "<C-v>", "p")
+
+-- ToggleTerm open terminal in specific direction
+vim.keymap.set("n", "<C-\\>h", ":ToggleTerm direction=horizontal size=15<CR>")
+vim.keymap.set("n", "<C-\\>v", ":ToggleTerm direction=vertical size=80<CR>")
+vim.keymap.set("n", "<C-\\>f", ":ToggleTerm direction=float<CR>")
+
+-- Map <leader>src to :source a file easily
+vim.keymap.set("n", "s", "<nop>") -- Need to remap s to <nop> so that it doesn't enter insert mode when pressed
+vim.keymap.set("n", "<leader>src", ":source<CR>")

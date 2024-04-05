@@ -101,6 +101,11 @@ return require('packer').startup(function(use)
 	-- Commenting
 	use('tpope/vim-commentary')
 
+	-- In editor terminal emulator (console)
+	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+		require("toggleterm").setup()
+	end}
+
 	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then
 		 require('packer').sync()

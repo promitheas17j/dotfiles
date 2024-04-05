@@ -24,3 +24,5 @@ vim.opt.list = true
 vim.opt.listchars:append("space:·")
 vim.opt.listchars:remove("trail")
 vim.opt.listchars:append("tab:| ")
+
+vim.g.NERDTreeQuitOnOpen=3 -- Equivalent in vimscript is: let g:NERDTreeQuitOnOpen=3

@@ -26,3 +26,5 @@ vim.opt.listchars:remove("trail")
 vim.opt.listchars:append("tab:| ")
 
 vim.g.NERDTreeQuitOnOpen=3 -- Equivalent in vimscript is: let g:NERDTreeQuitOnOpen=3
+
+vim.opt_local.formatoptions:remove({ 'r', 'o' })

@@ -1,6 +1,9 @@
 #! /bin/sh
 
-pgrep -x sxhkd > /dev/null || sxhkd -s &
+# pgrep -x sxhkd > /dev/null || sxhkd -s &
+# pgrep -io "sxhkd" || { killall sxhkd; sxhkd > /dev/null 2>&1 & }
+pgrep -io "sxhkd" | xargs kill
+sxhkd -s &
 pgrep -x copyq > /dev/null || copyq &
 pgrep -x xfce4-power-manager > /dev/null || xfce4-power-manager &
 pgrep -x dunst > /dev/null || dunst &

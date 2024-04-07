@@ -16,23 +16,15 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
---[[
-vim.api.nvim_create_autocmd(
-	{"BufEnter"},
-	{
-		desc = "Change whitespace colour for space character",
-		callback = function()
-			vim.api.nvim_command("hi Whitespace guifg=#00ff00")
-		end,
-		group = autocmd_group,
-	}
-)
---]]
-
 vim.api.nvim_create_autocmd(
 	"ColorScheme", {
 		desc = "Change whitespace colour for space character",
 		pattern = "dracula", -- change this to whatever the name of the colorscheme is
 		command = "hi Whitespace guifg=#aaaaaa",
 		group = autocmd_group,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function() vim.opt_local.formatoptions:remove("o", "r", "c")
+	end,
 })

@@ -158,7 +158,7 @@ super + r
 
 # Launch a searchable list of keybinds (shortcuts)
 super + alt + y
-	rofi -dmenu -i -markup-rows -no-show-icons -input /home/mart/.keybinds_list -theme-str 'window \{width: 80%; height: 60%;\}' -p "Search Keybinds"
+	rofi -dmenu -i -markup-rows -no-show-icons -fuzzy -input /home/mart/.keybinds_list -theme-str 'window \{width: 80%; height: 60%;\}' -p "Search Keybinds"
 
 # Test keybind (use to test launching of scripts etc)
 super + alt + t

@@ -1,8 +1,8 @@
-###########################
-# wm independent hotkeys  #
-###########################
+############################
+## wm independent hotkeys ##
+############################
 
-# Terminal emulator
+# Launch the terminal emulator
 super + Return
 	alacritty
 
@@ -12,11 +12,11 @@ super + @space
 
 # Reload sxhkd
 super + Escape
-	pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloading config'
+	killall sxhkd; sxhkd -s &; notify-send 'sxhkd' 'Reloading config'
 
-##########################
-# bspwm hotkeys          #
-##########################
+###########################
+##     bspwm hotkeys     ##
+###########################
 
 # Quit/restart bspwm
 super + alt + {q,r}
@@ -38,9 +38,9 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-###################
-# state/flags     #
-###################
+####################
+##   state/flags   #
+####################
 
 # Set the window state (tiled/pseudo/floating/fullscreen)
 super + {t,shift + t,s,f}
@@ -50,9 +50,9 @@ super + {t,shift + t,s,f}
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-##################
-# focus/swap     #
-##################
+###################
+##   focus/swap  ##
+###################
 
 # Focus the node in the given direction (switch to) (use shift to swap places)
 super + {_,shift + }{h,j,k,l}
@@ -80,9 +80,9 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# Focus or send to the given desktop
-# super + {_,shift + }{1-9,0}
-	# bspc {desktop -f,node -d} '^{1-9,10}'
+# (comment) Focus or send to the given desktop
+# (comment) super + {_,shift + }{1-9,0}
+	# (comment) bspc {desktop -f,node -d} '^{1-9,10}'
 
 # Focus given desktop
 super + {0-9}
@@ -92,9 +92,9 @@ super + {0-9}
 super + shift + {0-9}
 	bspc node -d {0-9}
 
-################
-# preselect    #
-################
+#################
+##  preselect  ##
+#################
 
 # Preselect the direction
 super + ctrl + {h,j,k,l}
@@ -112,9 +112,9 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-###################
-# move/resize     #
-###################
+####################
+##   move/resize  ##
+####################
 
 # Expand a window by moving one of its side outward (resize window)
 super + alt + {h,j,k,l}
@@ -129,7 +129,7 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 #########################
-# MY ADDITIONS		#
+##     MY ADDITIONS    ##
 #########################
 
 # Clipboard history with copyq
@@ -158,10 +158,10 @@ super + r
 
 # Launch a searchable list of keybinds (shortcuts)
 super + alt + y
-	~/.bin/keybind_cheatsheet.sh
-
+	rofi -dmenu -i -markup-rows -no-show-icons -input /home/mart/.keybinds_list -theme-str 'window \{width: 80%; height: 60%;\}' -p "Search Keybinds"
 
 # Test keybind (use to test launching of scripts etc)
 super + alt + t
-	alacritty --hold -e neofetch # hold option seems not to work through rofi
+	alacritty --hold -e neofetch
+	# hold option seems not to work through rofi
 

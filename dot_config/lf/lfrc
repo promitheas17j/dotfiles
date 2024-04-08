@@ -27,13 +27,14 @@ cmd chmod %{{
 	printf "Mode bits: "
 	read ans
 
-	for file in "$fx" do
+	for file in "$fx"
+	do
 		chmod $ans $file
 	done
 }}
 
 cmd fzf_jump ${{
-	res="$(fd --max-depth 4 | fzf --reverse --header='Jump to location')"
+	res="$(fd --max-depth 4 --no-ignore -H | fzf --reverse --header='Jump to location')"
 	if [ -f "$res" ]; then
 		cmd="select"
 	elif [ -d "$res" ]; then
@@ -61,7 +62,8 @@ cmd tar %{{
 	printf "Archive name: "
 	read ans
 	mkdir $ans
-	for i in $fx do
+	for i in $fx
+	do
 		cp -r $i $ans
 	done
 	tar czf $ans.tar.gz $ans
@@ -76,31 +78,42 @@ cmd zip %{{
 	rm -rf $1
 }}
 
+cmd chezmoi_add %{{
+	set -f
+	for i in $fx
+	do
+		chezmoi add $i
+		# unselect
+	done
+}}
+
 # Clear some bindings
 map m
 map f
 
-map au unarchive
-map at tar			# [A]rchive [T]ar
-map az zip			# [A]rchive [Z]ip
-map . set hidden!
-map x cut
-map DD delete
-map p paste
-map y copy
-map <enter> open
-map R reload
-map mf mkfile
-map md mkdir
-map C clear
-map f fzf_jump
+# Keybinds
+map au unarchive # Will unarchive following filetypes: .zip, .tar.gz, .tar.bz2, .tar, .rar
+map at tar # Will create a .tar.gz archive
+map az zip # Will create a .zip archive
+map . set hidden! # Toggles viewing hidden files
+map x cut # Cuts the file or directory
+map DD delete # Deletes the file or directory
+map p paste # Pastes any cut or copied files to the current directory
+map y copy # Copies the file or directory
+map <enter> open # Open selected directory or file (xdg-open is used to determine which program to use)
+map R reload # Refreshes the current directory and updates any changes
+map mf mkfile # Create a file
+map md mkdir # Create a directory
+map C clear # Clears any files or directories that have been marked for copy/cut/delete
+map f fzf_jump # Fuzzy-find files and jump to them
+map ac chezmoi_add # Add selected files to chezmoi source state directory
 
 # Movement to common directories
-map gd cd ~/Documents/
-map gD cd ~/Downloads/
-map gP cd ~/Pictures/
-map gp cd ~/Projects/
-map gc cd ~/.config/
-map gb cd ~/.bin/
-map gG cd ~/Games/
-map gr cd /
+map gd cd ~/Documents/ # Change directory to ~/Documents/
+map gD cd ~/Downloads/ # Change directory to ~/Downloads/
+map gP cd ~/Pictures/ # Change directory to ~/Pictures/
+map gp cd ~/Projects/ # Change directory to ~/Projects/
+map gc cd ~/.config/ # Change directory to ~/.config/
+map gb cd ~/.bin/ # Change directory to ~/.bin/
+map gG cd ~/Games/ # Change directory to ~/Games/
+map gr cd / # Change directory to / (root dir)

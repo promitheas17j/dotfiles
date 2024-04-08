@@ -4,9 +4,9 @@
 # Format should be something like this:
 # program | keybind | very short name of function | description
 
-KEYBINDS_FILE="/home/mart/.keybinds_list"
-SXHKD_CONF="/home/mart/.config/sxhkd/sxhkdrc"
-LFRC_CONF="/home/mart/.config/lf/lfrc"
+KEYBINDS_FILE="$HOME/.keybinds_list"
+SXHKD_CONF="$HOME/.config/sxhkd/sxhkdrc"
+LFRC_CONF="$HOME/.config/lf/lfrc"
 
 # make sure that we are not duplicating keybinds by appendig to the end of the file on every execution
 echo -n > $KEYBINDS_FILE

@@ -92,12 +92,12 @@ separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
 
-modules-left = bspwm date filesystem cpu memory pulseaudio
+modules-left = bspwm filesystem cpu memory pulseaudio
 # move date module back to right once tray becomes a module
 # xwindow
 modules-center = appname
-# modules-right =  date ; tray built-in module not yet in polybar version 3.6.3 so it wont work just yet. need to use the old way below (tray-position = <left/centre/right>)
-; wlan eth removed from left of tray module
+modules-right = date tray
+; wlan and eth modules removed in favour of network-manager-applet in system tray
 
 cursor-click = pointer
 cursor-scroll = ns-resize

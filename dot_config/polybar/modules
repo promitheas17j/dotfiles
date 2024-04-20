@@ -116,4 +116,6 @@ label-underline = ${colors.cyan}
 
 [module/tray]
 type = internal/tray
-
+tray-padding = 3px
+tray-size = 60%
+format-margin = 5px

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+qemu-system-x86_64 -hda $HOME/Projects/VMs/win10/win10.img -boot c -cpu qemu64 -m 32G -smp 10 -vga virtio -net nic,model=e1000 -net user -usbdevice tablet

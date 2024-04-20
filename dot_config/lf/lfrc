@@ -87,6 +87,36 @@ cmd chezmoi_add %{{
 	done
 }}
 
+# cmd open &{{
+# 	alacritty --hold -e nvim $f && kill -9 $(ps -o ppid= -p $$)
+# }}
+
+# cmd open &{{
+# 	case $(file --mime-type -Lb $f) in
+# 		text/*)
+# 			alacritty --hold -e nvim $f && pkill -9 $(ps -o ppid= -p $$);;
+# 		*)
+# 			for f in $fx;
+# 				do xdg-open $f > /dev/null 2> /dev/null &
+# 				done;;
+# 	esac
+# }}
+
+cmd open &{{
+	case $(file --mime-type -Lb $f) in
+		text/*)
+			alacritty -e sh -c "nvim \"$fx\"";;
+			# parent_pid=$$;
+			# alacritty -e nvim $f & wait $!;
+			# kill -9 $parent_pid;;
+		*)
+			for f in $fx;
+				do xdg-open $f > /dev/null 2> /dev/null &
+				done;;
+	esac
+}}
+
+
 # Clear some bindings
 map m
 map f

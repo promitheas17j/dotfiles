@@ -82,25 +82,34 @@ format-prefix-underline = ${colors.orange}
 label = %percentage:2%%
 label-underline = ${colors.orange}
 
+# [module/upspeed]
+# type = internal/network
+# interface = %ifname%
+# label-connected = "%upspeed: 7%"
+# format-connected = <label-connected>
+
 [network-base]
 type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 # label-disconnected = %{F#ffb86c}%ifname%%{F#ff5555} disconnected
-label-disconnected = %{F#ffb86c}ethernet%{F#ff5555} disconnected
+label-disconnected = ""
+# label-disconnected = %{F#ffb86c}ethernet%{F#ff5555} disconnected
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
 # label-connected = %{F#ffb86c}%ifname%%{F#50fa7b} %essid% %local_ip%
-label-connected = %{F#ffb86c}wifi%{F#50fa7b} %essid% %local_ip%
+# label-connected = %{F#ffb86c}wifi%{F#50fa7b} %essid% %local_ip%
+label-connected = %upspeed% %downspeed%
 
 [module/eth]
 inherit = network-base
 interface-type = wired
 # label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
-label-connected = %{F#ffb86c}ethernet%{F#50fa7b} %local_ip%
+# label-connected = %{F#ffb86c}ethernet%{F#50fa7b} %local_ip%
+label-connected = %upspeed% %downspeed%
 
 [module/date]
 type = internal/date

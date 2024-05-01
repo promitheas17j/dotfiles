@@ -96,7 +96,7 @@ modules-left = bspwm filesystem cpu memory pulseaudio
 # move date module back to right once tray becomes a module
 # xwindow
 modules-center = appname
-modules-right = date tray
+modules-right = wlan eth date tray
 ; wlan and eth modules removed in favour of network-manager-applet in system tray
 
 cursor-click = pointer

@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd(
 		callback = function()
 			local file_name = vim.api.nvim_buf_get_name(0) -- Get file name
 			local new_file_name = file_name:gsub("%.[^%.]+$", ".pdf")
-			vim.cmd(":!pandoc " .. file_name .. " -o " .. new_file_name)
+			vim.cmd(":!pandoc -f markdown-implicit_figures " .. file_name .. " -o " .. new_file_name)
 		end,
 		group = autocmd_group,
 	}

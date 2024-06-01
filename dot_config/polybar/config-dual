@@ -83,7 +83,7 @@ border-color = #00000000
 
 padding-left = 0
 # padding-right = 1
-padding-right = 16 ; change this back to value of 1 when tray becomes an internal module
+padding-right = 1
 
 module-margin = 1
 
@@ -104,9 +104,9 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
-tray-position = right
-tray-detached = true
-tray-offset-x = -5
+; tray-position = right
+; tray-detached = true
+; tray-offset-x = -5
 
 ; wm-restack = generic
 wm-restack = bspwm

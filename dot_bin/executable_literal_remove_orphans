@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Wait for current pacman transaction to complete
+while [ -f /var/lib/pacman/db.lck ]; do
+	sleep 1
+done
+
+# Remove orphaned packages
+sudo pacman -Rs $(pacman -Qdtq)

@@ -1,13 +1,15 @@
 #!/bin/sh
 
 # Terminate already running bar instances
-killall -9 polybar
+pgrep -x polybar | xargs kill
 
 # Wait until the processes have been shutdown
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
+# Make sure that all monitors have been detected by OS before checking how many bars to launch
+sleep 3
+
 # Launch bar
-# polybar bottom -c ~/.config/polybar/config-single &
 if [[ $(xrandr -q | grep "HDMI-A-1 connected") ]]; # Second monitor detected - launch both bars with dual monitor config
 then
 	polybar top -c ~/.config/polybar/config-dual &

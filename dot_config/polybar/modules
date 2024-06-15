@@ -28,6 +28,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
 label-mounted = %{F#50fa7b}%mountpoint%%{F-} %percentage_used%%
 label-mounted-underline = ${colors.green}
@@ -108,9 +109,10 @@ label-connected = "U:%upspeed% D:%downspeed%"
 type = internal/date
 interval = 1
 
-date = %H:%M
-date-alt = %d-%m-%Y
-# %H:%M:%S
+date = %T
+# %T equivalent to "%H:%M%:S" (the ISO 8601 time format)
+date-alt = %a - %F
+# %F equivalent to "%Y-%m-%d" (the ISO 8601 date format)
 
 label = %date%
 label-foreground = ${colors.cyan}

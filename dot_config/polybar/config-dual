@@ -92,11 +92,11 @@ separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
 
-modules-left = bspwm filesystem cpu memory pulseaudio
+modules-left = bspwm filesystem cpu memory
 # move date module back to right once tray becomes a module
 # xwindow
 modules-center = appname
-modules-right = wlan eth date tray
+modules-right = date tray
 ; wlan and eth modules removed in favour of network-manager-applet in system tray
 
 cursor-click = pointer

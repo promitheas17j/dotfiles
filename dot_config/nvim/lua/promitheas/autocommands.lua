@@ -10,6 +10,12 @@ vim.api.nvim_create_autocmd(
 		desc = "Auto-compile markdown files to pdf after saving",
 		callback = function()
 			local file_name = vim.api.nvim_buf_get_name(0) -- Get file name
+			local first_line = vim.fn.readfile(file_name, '', 1)[1]
+
+			if first_line == "<!-- NO_PDF -->" then
+				return -- skip PDF compilation if the fist line is <!-- NO_PDF -->
+			end
+
 			local new_file_name = file_name:gsub("%.[^%.]+$", ".pdf")
 			vim.cmd(":!pandoc -f markdown-implicit_figures " .. file_name .. " -o " .. new_file_name)
 		end,

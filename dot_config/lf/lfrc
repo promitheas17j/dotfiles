@@ -140,6 +140,7 @@ map ac chezmoi_add # Add selected files to chezmoi source state directory
 
 # Movement to common directories
 map gd cd ~/Documents/ # Change directory to ~/Documents/
+map ge cd ~/Documents/EUC # Change directory to ~/Documents/EUC
 map gD cd ~/Downloads/ # Change directory to ~/Downloads/
 map gP cd ~/Pictures/ # Change directory to ~/Pictures/
 map gp cd ~/Projects/ # Change directory to ~/Projects/

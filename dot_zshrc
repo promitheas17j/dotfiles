@@ -106,6 +106,7 @@ fi
 alias la="ls -ah"
 alias ll="ls -lh"
 alias lla="ls -lah"
+alias llf="ls -alh | fzf"
 alias nv="nvim"
 alias snv="sudoedit" # Edit files with sudo nvim while preserving configs
 alias cm="chezmoi"
@@ -145,3 +146,11 @@ fi
 
 # lfcd.sh script allows for changing the working directory on exit. aliasing it to lf
 alias lf="lfcd"
+
+# pnpm
+export PNPM_HOME="/home/mart/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

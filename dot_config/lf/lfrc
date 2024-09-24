@@ -53,6 +53,7 @@ cmd unarchive ${{
 		*.tar.bz2) tar -xjvf "$f" ;;
 		*.tar) tar -xvf "$f" ;;
 		*.rar) unrar x "$f" ;;
+		*.7z) 7z x "$f" ;;
 		*) echo "Unsupported format. If you think it should be, try adding it to lfrc" ;;
 	esac
 }}
@@ -77,6 +78,14 @@ cmd zip %{{
 	zip -r $1.zip $1
 	rm -rf $1
 }}
+
+# cmd 7zip %{{
+# 	set -f
+# 	mkdir $1.temp
+# 	cp -r $fs $1.temp
+# 	7z a $1.7z $1.temp
+# 	rm -rf $1.temp
+# }}
 
 cmd chezmoi_add %{{
 	set -f
@@ -125,6 +134,7 @@ map f
 map au unarchive # Will unarchive following filetypes: .zip, .tar.gz, .tar.bz2, .tar, .rar
 map at tar # Will create a .tar.gz archive
 map az zip # Will create a .zip archive
+# map a7 7zip # Will create a .7z archive
 map . set hidden! # Toggles viewing hidden files
 map x cut # Cuts the file or directory
 map DD delete # Deletes the file or directory

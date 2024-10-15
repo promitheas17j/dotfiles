@@ -154,3 +154,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+swap () {
+	mv "$1" "$1.temp" && mv "$2" "$1" && mv "$1.temp" "$2";
+}

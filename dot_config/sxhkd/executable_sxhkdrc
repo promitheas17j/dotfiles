@@ -8,7 +8,7 @@ super + Return
 
 # Desktop program launcher (rofi)
 super + @space
-	rofi -show drun
+	rofi -m 1 -fuzzy -show drun
 
 # Reload sxhkd
 super + Escape
@@ -154,11 +154,11 @@ super + alt + p
 
 # All binary program launcher
 super + r
-	rofi -show run
+	rofi -fuzzy -m 1 -show run
 
 # Launch a searchable list of keybinds (shortcuts)
 super + alt + y
-	rofi -dmenu -i -markup-rows -no-show-icons -fuzzy -input /home/mart/.keybinds_list -theme-str 'window \{width: 80%; height: 60%;\}' -p "Search Keybinds"
+	rofi -m 1 -dmenu -i -markup-rows -no-show-icons -fuzzy -input /home/mart/.keybinds_list -theme-str 'window \{width: 80%; height: 60%;\}' -p "Search Keybinds"
 
 # Test keybind (use to test launching of scripts etc)
 super + alt + t

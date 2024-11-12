@@ -1,1 +1,1 @@
-setxkbmap -option caps:escape
+/home/turing/.bin/remap-caps-esc

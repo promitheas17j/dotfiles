@@ -17,6 +17,8 @@ pgrep -x polybar > /dev/null | xargs kill
 $HOME/.config/polybar/launch.sh
 
 $HOME/.fehbg &
+# On startup, bottom monitor's background is stretched and generally looks bad (its just a bunch of lines), until I restart my bspwm session. Placing the feh command a second time to test if this solves it.
+$HOME/.fehbg & 
 
 setxkbmap us
 $HOME/.bin/remap-caps-esc

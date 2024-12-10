@@ -21,7 +21,7 @@ include-file = $HOME/.config/polybar/modules
 
 [bar/bottom]
 bottom = true
-monitor = HDMI-A-0
+monitor = ${env:MONITOR}
 width = 100%
 height = 24pt
 radius = 6

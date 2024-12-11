@@ -9,7 +9,7 @@ while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 # Make sure that all monitors have been detected by OS before checking how many bars to launch
 sleep 3
 
-connected_monitors=$(xrandr --listmonitors | grep -c ' connected')
+connected_monitors=$(xrandr --listmonitors | grep "^Monitors:" | cut -d' ' -f2)
 
 # Launch bar
 if [[ "$connected_monitors" -gt 1 ]]; # Second monitor detected - launch both bars with dual monitor config

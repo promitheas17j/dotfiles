@@ -61,6 +61,7 @@ else
 	xrandr --output "$monitor_name" --scale 0.75x0.75 --mode 3840x2160 --primary
 	# bspc monitor -d I II III IV V VI VII VIII IX X
 	bspc monitor "$monitor_name" -d 1 2 3 4
+	xinput set-button-map 9 1 2 3 5 4 6 7
 	# pgrep -x polybar > /dev/null || $HOME/.config/polybar/launch.sh
 fi
 

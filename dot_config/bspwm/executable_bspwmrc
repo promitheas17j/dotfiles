@@ -56,6 +56,7 @@ then
 	bspc config -m HDMI-A-1 top_padding 40
 
 	bspc wm -O HDMI-A-0 HDMI-A-1
+	$HOME/.fehbg & 
 else
 	monitor_name="$(xrandr --listmonitors | awk 'NR==2 {print $4}')"
 	xrandr --output "$monitor_name" --scale 0.75x0.75 --mode 3840x2160 --primary
@@ -63,9 +64,9 @@ else
 	bspc monitor "$monitor_name" -d 1 2 3 4
 	xinput set-button-map 9 1 2 3 5 4 6 7
 	# pgrep -x polybar > /dev/null || $HOME/.config/polybar/launch.sh
+	$HOME/.fehbg & 
 fi
 
-$HOME/.fehbg & 
 
 # Make sure theme cursor is shown when mouse is not over a window, instead of the standard default one
 xsetroot -cursor_name left_ptr

@@ -59,7 +59,7 @@ then
 	$HOME/.fehbg & 
 else
 	monitor_name="$(xrandr --listmonitors | awk 'NR==2 {print $4}')"
-	xrandr --output "$monitor_name" --scale 0.75x0.75 --mode 3840x2160 --primary
+	xrandr --output "$monitor_name" --scale 1.0x1.0 --mode 1920x1080 --primary
 	# bspc monitor -d I II III IV V VI VII VIII IX X
 	bspc monitor "$monitor_name" -d 1 2 3 4
 	xinput set-button-map 9 1 2 3 5 4 6 7

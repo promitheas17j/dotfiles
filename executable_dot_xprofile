@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Detect all connected monitors and activate them. Do not handle any positioning or layout
+xrandr --query | grep " connected" | cut -d' ' -f1 | while read -r monitor; do
+	xrandr --output "$monitor" --auto
+done

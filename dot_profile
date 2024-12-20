@@ -1,1 +1,2 @@
-/home/turing/.bin/remap-caps-esc
+# /home/${USER}/.bin/remap-caps-esc
+# /home/${USER}/.bin/parse_keybinds.sh

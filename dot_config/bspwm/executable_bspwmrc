@@ -61,7 +61,7 @@ else
 	monitor_name="$(xrandr --listmonitors | awk 'NR==2 {print $4}')"
 	xrandr --output "$monitor_name" --scale 1.0x1.0 --mode 1920x1080 --primary
 	# bspc monitor -d I II III IV V VI VII VIII IX X
-	bspc monitor "$monitor_name" -d 1 2 3 4
+	bspc monitor "$monitor_name" -d 1 2 3 4 5 6
 	xinput set-button-map 9 1 2 3 5 4 6 7
 	# pgrep -x polybar > /dev/null || $HOME/.config/polybar/launch.sh
 	$HOME/.fehbg & 

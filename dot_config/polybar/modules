@@ -23,12 +23,24 @@ label = [ %output% ]
 
 label-foreground = ${colors.yellow}
 
-[module/filesystem]
+[module/filesystem_double]
 type = internal/fs
 interval = 25
 
 mount-0 = /
 mount-1 = /home
+
+label-mounted = %{F#50fa7b}%mountpoint%%{F-} %percentage_used%%
+label-mounted-underline = ${colors.green}
+
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.red}
+
+[module/filesystem_single]
+type = internal/fs
+interval = 25
+
+mount-0 = /
 
 label-mounted = %{F#50fa7b}%mountpoint%%{F-} %percentage_used%%
 label-mounted-underline = ${colors.green}

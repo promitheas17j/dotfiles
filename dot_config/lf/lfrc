@@ -54,6 +54,7 @@ cmd unarchive ${{
 		*.tar) tar -xvf "$f" ;;
 		*.rar) unrar x "$f" ;;
 		*.7z) 7z x "$f" ;;
+		*.iso) 7z x "$f" ;;
 		*) echo "Unsupported format. If you think it should be, try adding it to lfrc" ;;
 	esac
 }}

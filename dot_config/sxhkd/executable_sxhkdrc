@@ -156,6 +156,10 @@ super + alt + p
 super + r
 	rofi -fuzzy -m 1 -show run
 
+# Toggle notifications on/off
+super + shift + comma
+	dunstctl set-paused toggle
+
 # Launch a searchable list of keybinds (shortcuts)
 super + alt + y
 	rofi -m 1 -dmenu -i -markup-rows -no-show-icons -fuzzy -input /home/mart/.keybinds_list -theme-str 'window \{width: 80%; height: 60%;\}' -p "Search Keybinds"

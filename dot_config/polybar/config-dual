@@ -92,7 +92,7 @@ separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
 
-modules-left = bspwm filesystem cpu memory
+modules-left = bspwm filesystem_double cpu memory
 # move date module back to right once tray becomes a module
 # xwindow
 modules-center = appname

@@ -23,12 +23,24 @@ label = [ %output% ]
 
 label-foreground = ${colors.yellow}
 
-[module/filesystem]
+[module/filesystem_double]
 type = internal/fs
 interval = 25
 
 mount-0 = /
 mount-1 = /home
+
+label-mounted = %{F#50fa7b}%mountpoint%%{F-} %percentage_used%%
+label-mounted-underline = ${colors.green}
+
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.red}
+
+[module/filesystem_single]
+type = internal/fs
+interval = 25
+
+mount-0 = /
 
 label-mounted = %{F#50fa7b}%mountpoint%%{F-} %percentage_used%%
 label-mounted-underline = ${colors.green}
@@ -117,6 +129,35 @@ date-alt = %a - %F
 label = %date%
 label-foreground = ${colors.cyan}
 label-underline = ${colors.cyan}
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+; Default: 100
+; full-at = 99
+full-at = 100
+
+; format-low once this charge percentage is reached
+; Default: 10
+; New in version 3.6.0
+low-at = 5
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
 
 [module/tray]
 type = internal/tray

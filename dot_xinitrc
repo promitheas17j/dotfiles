@@ -36,3 +36,5 @@ setxkbmap -layout gb &
 systemctl --user import-environment DISPLAY
 exec bspwm
 exec copyq &
+/home/${USER}/.bin/remap-caps-esc
+/home/${USER}/.bin/parse_keybinds.sh

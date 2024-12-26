@@ -59,9 +59,9 @@ then
 	$HOME/.fehbg & 
 else
 	monitor_name="$(xrandr --listmonitors | awk 'NR==2 {print $4}')"
-	xrandr --output "$monitor_name" --scale 1.0x1.0 --mode 1920x1080 --primary
+	xrandr --output "$monitor_name" --scale 0.75x0.75 --mode 3840x2160 --primary
 	# bspc monitor -d I II III IV V VI VII VIII IX X
-	bspc monitor "$monitor_name" -d 1 2 3 4 5 6
+	bspc monitor "$monitor_name" -d 1 2 3 4
 	xinput set-button-map 9 1 2 3 5 4 6 7
 	# pgrep -x polybar > /dev/null || $HOME/.config/polybar/launch.sh
 	$HOME/.fehbg & 
@@ -81,5 +81,6 @@ bspc rule -a Passy state=tiled
 
 bspc rule -a scpad sticky=on state=floating rectangle=1896x400+10+50
 
+$HOME/.bin/parse_keybinds.sh
 betterlockscreen -u $HOME/Pictures/wallpapers/ --fx dim --dim 50
 

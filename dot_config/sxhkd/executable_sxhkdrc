@@ -158,7 +158,7 @@ super + r
 
 # Toggle notifications on/off
 super + shift + comma
-	dunstctl set-paused toggle
+	sh -c 'if dunstctl is-paused | grep -q "true"; then dunstctl set-paused false; notify-send -t 2500 "Notifications enabled"; else notify-send -t 2500 "Notifications disabled"; sleep 2.5; dunstctl set-paused true; fi'
 
 # Launch a searchable list of keybinds (shortcuts)
 super + alt + y

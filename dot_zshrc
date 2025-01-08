@@ -148,7 +148,7 @@ fi
 alias lf="lfcd"
 
 # pnpm
-export PNPM_HOME="/home/mart/.local/share/pnpm"
+export PNPM_HOME="/home/$(whoami)/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -158,3 +158,6 @@ esac
 swap () {
 	mv "$1" "$1.temp" && mv "$2" "$1" && mv "$1.temp" "$2";
 }
+
+# export arduino-cli config file path (XDG_CONFIG_HOME)
+export ARDUINO_CLI_CONFIG_FILE="/home/$(whoami)/.config/arduino-cli/arduino-cli.yaml"

@@ -59,6 +59,9 @@ then
 
 	bspc wm -O HDMI-A-0 HDMI-A-1
 	$HOME/.fehbg & 
+	xset s off
+	xset s noblank
+	xset -dpms
 else
 	monitor_name="$(xrandr --listmonitors | awk 'NR==2 {print $4}')"
 	xrandr --output "$monitor_name" --scale 1.0x1.0 --mode 1920x1080 --primary

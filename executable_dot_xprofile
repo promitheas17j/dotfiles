@@ -4,3 +4,7 @@
 xrandr --query | grep " connected" | cut -d' ' -f1 | while read -r monitor; do
 	xrandr --output "$monitor" --auto
 done
+
+export GTK_THEME="gtk-master-dracula"
+export XCURSOR_THEME="Dracula-cursor"
+export XCURSOR_SIZE=24

@@ -1,0 +1,3 @@
+2025-03-26 20:17:42 setup_arch.sh - Changed directory to chezmoi directory
+2025-03-26 20:17:43 setup_arch.sh - Pulled dotfiles from remote repo
+2025-03-26 20:17:51 setup_arch.sh - Synched local dotfiles with chezmoi directory dotfiles

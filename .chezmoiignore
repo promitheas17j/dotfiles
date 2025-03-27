@@ -17,7 +17,6 @@
 .config/Electron/**
 .config/flameshot/**
 .config/gtk-2.0/**
-.config/gtk-3.0/**
 .config/mpv/**
 .config/Netflix/**
 .config/Beeper/**

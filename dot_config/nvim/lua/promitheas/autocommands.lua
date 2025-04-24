@@ -29,11 +29,18 @@ vim.api.nvim_create_autocmd(
 		pattern = {"*.tex"},
 		desc = "Auto-compile latex files after saving",
 		callback = function()
-			local file_name = vim.api.nvim_buf_get_name(0) -- Get file name
-			vim.cmd(":!pdflatex " .. file_name)
-			vim.cmd(":!bibtex " .. file_name)
-			vim.cmd(":!pdflatex " .. file_name)
-			vim.cmd(":!pdflatex " .. file_name)
+			local full_path = vim.api.nvim_buf_get_name(0) -- Get full path
+			local dir = vim.fn.fnamemodify(file_name, ":h") -- Get directory
+			local file_name = vim.fn.fnamemodify(full_path, ":t") -- Get filename with extension
+			local base_name = vim.fn.fnamemodify(full_path, ":t:r") -- Get base name (no extension - for bibtex)
+			vim.cmd("!cd " .. dir .. " && pdflatex " .. file_name)
+			vim.cmd("!cd " .. dir .. " && bibtex " .. base_name)
+			vim.cmd("!cd " .. dir .. " && pdflatex " .. file_name)
+			vim.cmd("!cd " .. dir .. " && pdflatex " .. file_name)
+			-- vim.cmd(":!pdflatex " .. file_name)
+			-- vim.cmd(":!bibtex " .. base_name)
+			-- vim.cmd(":!pdflatex " .. file_name)
+			-- vim.cmd(":!pdflatex " .. file_name)
 		end,
 		group = autocmd_group,
 	}

@@ -31,6 +31,9 @@ vim.api.nvim_create_autocmd(
 		callback = function()
 			local file_name = vim.api.nvim_buf_get_name(0) -- Get file name
 			vim.cmd(":!pdflatex " .. file_name)
+			vim.cmd(":!bibtex " .. file_name)
+			vim.cmd(":!pdflatex " .. file_name)
+			vim.cmd(":!pdflatex " .. file_name)
 		end,
 		group = autocmd_group,
 	}

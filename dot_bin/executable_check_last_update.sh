@@ -13,7 +13,7 @@ fi
 
 # Kernel version check
 running_kernel=$(uname -r)
-installed_kernel=$(pacman -Q linux | awk '{print $2}' | cut -d '-' -f1)
+installed_kernel=$(pacman -Q linux | awk '{print $2}' | cut -d '-' -f1 | cut -d '.' -f1,2,3)
 
 running_kernel_base=$(echo "$running_kernel" | cut -d '-' -f1)
 

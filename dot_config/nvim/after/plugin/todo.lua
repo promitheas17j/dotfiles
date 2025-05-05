@@ -6,7 +6,7 @@ vim.keymap.set('n', '[t', function()
   require('todo-comments').jump_prev()
 end, { desc = 'Previous todo comment' })
 
-vim.keymap.set('n', '<leader>tdlist', vim.cmd.TodoQuickFix);
+vim.keymap.set('n', '<leader>tdl', vim.cmd.TodoQuickFix);
 vim.keymap.set('n', '<leader>tdff', vim.cmd.TodoTelescope);
 
 require('todo-comments').setup({

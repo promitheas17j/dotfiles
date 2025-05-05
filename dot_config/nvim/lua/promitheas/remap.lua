@@ -18,6 +18,7 @@ vim.keymap.set('n', '<leader>K', '<cmd>wincmd K<CR>') -- move current window to 
 vim.keymap.set('n', '<leader>J', '<cmd>wincmd J<CR>') -- move current window to bottom position
 vim.keymap.set('n', '<leader>H', '<cmd>wincmd H<CR>') -- move current window to left position
 vim.keymap.set('n', '<leader>L', '<cmd>wincmd L<CR>') -- move current window to right position
+vim.keymap.set('n', '<leader>retb', '<cmd>%retab!<cr>') -- convert all leading spaces to tabs for the entire file
 
 -- CTRL-Backspace to delete previous word
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-w>', {noremap = true})

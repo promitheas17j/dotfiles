@@ -41,7 +41,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-Q>", "<nop>") -- unbind Ctrl+Q from visual block mode so that QQ exits without saving
 
 -- Remap visual block mode
--- vim.keymap.set("n", "<C-B>", "<cmd>lua require('functions').enter_visual_block()<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<M-v>", "<C-v>", { noremap = true }) -- remap visual block mode to Alt+v
 
 
 -- Map ctrl+s to save the file

@@ -106,6 +106,10 @@ return require('packer').startup(function(use)
 		require("toggleterm").setup()
 	end}
 
+	use {'echasnovski/mini.move', version = '*', config = function()
+		require("mini.move").setup()
+	end}
+
 	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then
 		 require('packer').sync()

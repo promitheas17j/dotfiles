@@ -26,9 +26,12 @@ vim.api.nvim_set_keymap('i', '<C-BS>', '<C-w>', {noremap = true})
 -- TODO: Create mapping to lookup vim keybindings in general, not just telescope ones (might just do this with rofi at the sxhkd level tbh)
 vim.api.nvim_set_keymap('n', '<leader>kb', '<cmd>Telescope keymaps<cr>', {noremap = true}) -- show a list of keybinds
 
+-- Remap visual block mode
+vim.keymap.set("n", "<M-v>", "<C-v>", { noremap = true }) -- remap visual block mode to Alt+v
+
 -- Move selected chunk up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
 -- Half-page up/down with cursor always in middle
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -39,10 +42,6 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-Q>", "<nop>") -- unbind Ctrl+Q from visual block mode so that QQ exits without saving
-
--- Remap visual block mode
-vim.keymap.set("n", "<M-v>", "<C-v>", { noremap = true }) -- remap visual block mode to Alt+v
-
 
 -- Map ctrl+s to save the file
 vim.keymap.set("n", "<C-s>", ":w<CR>")

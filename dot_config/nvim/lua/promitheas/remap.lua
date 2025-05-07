@@ -63,3 +63,6 @@ vim.keymap.set("n", "<C-\\>f", ":ToggleTerm direction=float<CR>")
 -- Map <leader>src to :source a file easily
 vim.keymap.set("n", "s", "<nop>") -- Need to remap s to <nop> so that it doesn't enter insert mode when pressed
 vim.keymap.set("n", "<leader>src", ":source<CR>")
+
+-- Yank entire file without moving cursor
+vim.keymap.set("n", "<leader>yy", "<cmd>%y+<CR>") -- yank entire file into clipboard without moving cursor

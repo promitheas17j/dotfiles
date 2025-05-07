@@ -241,4 +241,6 @@ remind() {
 # export arduino-cli config file path (XDG_CONFIG_HOME)
 export ARDUINO_CLI_CONFIG_FILE="/home/$(whoami)/.config/arduino-cli/arduino-cli.yaml"
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 check_last_update.sh

@@ -36,5 +36,7 @@ setxkbmap -layout gb &
 systemctl --user import-environment DISPLAY
 exec bspwm
 exec copyq &
+eval $(ssh-agent)
+SSH_ASKPASS=/usr/bin/x11-ssh-askpass ssh-add ~/.ssh/id_ed25519 < /dev/null
 /home/${USER}/.bin/remap-caps-esc
 /home/${USER}/.bin/parse_keybinds.sh

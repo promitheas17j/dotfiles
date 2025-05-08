@@ -110,6 +110,12 @@ return require('packer').startup(function(use)
 		require("mini.move").setup()
 	end}
 
+	use{'Aasim-A/scrollEOF.nvim', config = function()
+		require('scrollEOF').setup({
+			insert_mode = true,
+		})
+	end}
+
 	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then
 		 require('packer').sync()

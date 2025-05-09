@@ -241,6 +241,12 @@ remind() {
 # export arduino-cli config file path (XDG_CONFIG_HOME)
 export ARDUINO_CLI_CONFIG_FILE="/home/$(whoami)/.config/arduino-cli/arduino-cli.yaml"
 
+# Export texlive paths
+export PATH=/opt/texlive/2025/bin/x86_64-linux:$PATH
+export MANPATH=/opt/texlive/2025/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/opt/texlive/2025/texmf-dist/doc/info:$INFOPATH
+export TEXMFLOCAL=/opt/texlive/2025/texmf-local
+
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 check_last_update.sh

@@ -1,0 +1,26 @@
+require('aerial').setup({
+	-- backends = { "lsp", "treesitter", "markdown" },
+	backends = { "lsp", "markdown" },
+	default_direction = 'left',
+	layout = {
+		placement = 'edge',
+		preserve_equality = 'false',
+		width = 35,
+		min_width = 30,
+		max_width = 40,
+	},
+	filter_kind = {
+		"Array",
+		"Boolean",
+		"Class",
+		"Constructor",
+		"Enum",
+		"Function",
+		"Interface",
+		"Module",
+		"Method",
+		"Struct",
+		"Variable",
+	},
+	autojump = true,
+})

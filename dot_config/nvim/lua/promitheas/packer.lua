@@ -116,6 +116,8 @@ return require('packer').startup(function(use)
 		})
 	end}
 
+	use ('stevearc/aerial.nvim')
+
 	-- Make sure next part is last, after any plugins
 	if packer_bootstrap then
 		 require('packer').sync()

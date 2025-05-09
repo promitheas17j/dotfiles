@@ -66,3 +66,5 @@ require'nvim-treesitter.configs'.setup {
 		disable = { 'latex' },
 	},
 }
+
+vim.treesitter.language.register('cpp', 'arduino')

@@ -66,3 +66,5 @@ vim.keymap.set("n", "<leader>src", ":source<CR>")
 
 -- Yank entire file without moving cursor
 vim.keymap.set("n", "<leader>yy", "<cmd>%y+<CR>") -- yank entire file into clipboard without moving cursor
+
+vim.keymap.set("n", "<leader>aer", "<cmd>AerialToggle<CR>", { noremap = true, silent = true})

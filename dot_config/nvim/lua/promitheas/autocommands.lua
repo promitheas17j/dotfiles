@@ -69,3 +69,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 	group = autocmd_group,
 })
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+	desc = "Treat Arduino files (.ino) as C++ so that clangd lsp works in them",
+    pattern = "*.ino",
+    callback = function()
+        vim.bo.filetype = "cpp"
+    end,
+})

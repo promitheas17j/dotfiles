@@ -1,6 +1,6 @@
 require('aerial').setup({
-	-- backends = { "lsp", "treesitter", "markdown" },
-	backends = { "lsp", "markdown" },
+	backends = { "lsp", "treesitter", "markdown" },
+	-- backends = { "treesitter", "markdown" },
 	default_direction = 'left',
 	layout = {
 		placement = 'edge',

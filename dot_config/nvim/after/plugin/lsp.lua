@@ -32,25 +32,16 @@ vim.lsp.buf.hover = function(config)
 	return og_hover(config)
 end
 
--- return og_hover(config)
--- end
--- lsp.set_preferences({
--- 	float_border = 'rounded',
--- })
+require('lspconfig').pyright.setup{}
 
--- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
--- 	vim.lsp.handlers.hover,
--- 	{ border = "single" }
--- )
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	update_in_insert = true,
+})
 
--- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
--- 	vim.lsp.handlers.signature_help,
--- 	border_opts
--- )
-
--- vim.diagnostic.config({
--- 	float = {
--- 		border = "rounded",
--- 	}
--- })
-
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = true,
+	signs = true,
+	update_in_insert = true,
+})

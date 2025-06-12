@@ -90,3 +90,5 @@ bspc rule -a scpad sticky=on state=floating rectangle=1896x400+10+50
 $HOME/.bin/parse_keybinds.sh
 betterlockscreen -u $HOME/Pictures/wallpapers/ --fx dim --dim 50
 
+eval $(ssh-agent)
+SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass ssh-add ~/.ssh/id_ed25519 < /dev/null

@@ -32,6 +32,13 @@ return require('packer').startup(function(use)
 		}
 	}
 	use('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
+	use {
+		"stevearc/tree-sitter-python-indent",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("ts_indent.python_indent").setup()
+		end,
+	}
 
 	use {'saadparwaiz1/cmp_luasnip'}
 

@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+set -eu
+
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+cat <<'EOF'
+Usage: vimv [file1 file2 ...]
+
+Bulk rename files using your $EDITOR (default: vi or nvim).
+
+Without arguments, vimv opens a list of all non-hidden files in the current directory.
+You can edit the filenames, save, and vimv will rename the files accordingly.
+
+Examples:
+  vimv               # rename all files in current dir
+  vimv *.jpg         # rename only JPG files
+  vimv -h            # show this help
+
+Homepage: https://github.com/thameera/vimv
+EOF
+exit 0
+fi
+
+# Lists the current directory's files in Vim, so you can edit it and save to rename them
+# USAGE: vimv [file1 file2]
+# https://github.com/thameera/vimv
+
+declare -r FILENAMES_FILE=$(mktemp "${TMPDIR:-/tmp}/vimv.XXXXXX")
+
+trap '{ rm -f "${FILENAMES_FILE}" ; }' EXIT
+
+safeMove() {
+    local src="$1"
+    local dest="$2"
+    mkdir -p "$(dirname "$dest")"
+    if [ -e "$dest" ]; then
+        echo "WARN: Can't rename '$src' -> '$dest', destination exists!" >&2
+        return 1
+    fi
+    if git ls-files --error-unmatch "$src" > /dev/null 2>&1; then
+        git mv -- "$src" "$dest"
+    else
+        mv -n -- "$src" "$dest"
+    fi
+}
+
+if [ $# -ne 0 ]; then
+    src=( "$@" )
+else
+    IFS=$'\r\n' GLOBIGNORE='*' command eval 'src=($(ls -1A))'
+fi
+
+for ((i=0;i<${#src[@]};++i)); do
+    echo "${src[i]}" >> "${FILENAMES_FILE}"
+done
+
+${EDITOR:-vi} "${FILENAMES_FILE}"
+
+IFS=$'\r\n' GLOBIGNORE='*' command eval 'dest=($(cat "${FILENAMES_FILE}"))'
+IFS=$'\r\n' GLOBIGNORE='*' command eval 'dest_unique=($(cat "${FILENAMES_FILE}" | sort -u))'
+
+if (( ${#src[@]} != ${#dest[@]} )); then
+    echo "WARN: Number of files changed. Did you delete a line by accident? Aborting.." >&2
+    exit 1
+fi
+
+if (( ${#dest[@]} != ${#dest_unique[@]} )); then
+    echo "WARN: Destination filenames are not unique! Aborting.." >&2
+    exit 1
+fi
+
+declare -i count=0
+EXT="vimv-tmp-$(date +%s)-${RANDOM}"
+for ((i=0;i<${#src[@]};++i)); do
+    if [ "${src[i]}" != "${dest[i]}" ]; then
+        safeMove "${src[i]}" "${dest[i]}.${EXT}" && ((++count))
+    fi
+done
+
+for ((i=0;i<${#src[@]};++i)); do
+    if [ "${src[i]}" != "${dest[i]}" ]; then
+        safeMove "${dest[i]}.${EXT}" "${dest[i]}" || : resume on error
+    fi
+done
+
+echo "$count" files renamed.

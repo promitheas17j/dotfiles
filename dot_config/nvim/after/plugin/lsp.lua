@@ -1,19 +1,17 @@
 local cmp = require('cmp')
 local lsp = require('lsp-zero').preset({})
 
--- local cmp_select = {behaviour = cmp.SelectBehaviour.Select}
--- local cmp_mappings = lsp.defaults.cmp_mappings({
-
-lsp.on_attach(function(client, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp.default_keymaps({buffer = bufnr})
-
-end)
-
-lsp.configure('clangd', {
-	cmd = { 'clangd', '--background-index', '--header-insertion=never' },
-})
+require('lspconfig').clangd.setup{
+	cmd = {
+		'clangd',
+		'--background-index',
+		'--header-insertion=never',
+	},
+	on_attach = function(client, bufnr)
+		local lsp_zero = require('lsp-zero')
+		lsp_zero.default_keymaps({ buffer = bufnr })
+	end,
+}
 
 lsp.setup()
 

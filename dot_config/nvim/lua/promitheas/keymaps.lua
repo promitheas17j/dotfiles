@@ -1,3 +1,4 @@
+local funcs = require("promitheas.functions")
 -- vim.api.nvim_set_keymap('i', '<C-H>', '<C-w>', {noremap = true})
 
 vim.g.mapleader = " "
@@ -92,3 +93,7 @@ vim.keymap.set("n", "<leader>df", function()
 		vim.diagnostic.open_float()
 	end
 end, { noremap = true, silent = true })
+
+-- vim.keymap.set("n", "<S-k>", vim.lsp.buf.signature_help, { buffer = true })
+
+vim.keymap.set("n", "gm", funcs.open_man, { desc = "Open man page in new tab" })

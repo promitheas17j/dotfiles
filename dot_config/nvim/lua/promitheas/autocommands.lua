@@ -72,8 +72,23 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 	desc = "Treat Arduino files (.ino) as C++ so that clangd lsp works in them",
-    pattern = "*.ino",
-    callback = function()
-        vim.bo.filetype = "cpp"
-    end,
+	pattern = "*.ino",
+	callback = function()
+		vim.bo.filetype = "cpp"
+	end,
+})
+
+-- vim.api.nvim_create_augroup("ManPages", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+	group =  autocmd_group,
+	pattern = "man",
+	callback = function()
+		-- Use :Man when pressing K
+		vim.bo.keywordprg = ":Man"
+		-- Buffer-local mappings
+		local opts = { buffer = true, silent = true }
+		vim.keymap.set("n", "q", "<cmd>quit<cr>", vim.tbl_extend("force", opts, { desc = "Quit man page" }))
+		vim.keymap.set("n", "<CR>", "<cmd>silent! normal K<cr>", vim.tbl_extend("force", opts, { desc = "Follow man reference" }))
+	end,
 })

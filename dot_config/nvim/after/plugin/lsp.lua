@@ -6,6 +6,7 @@ require('lspconfig').clangd.setup{
 		'clangd',
 		'--background-index',
 		'--header-insertion=never',
+		'--enable-config',
 	},
 	on_attach = function(client, bufnr)
 		local lsp_zero = require('lsp-zero')

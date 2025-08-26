@@ -96,4 +96,4 @@ end, { noremap = true, silent = true })
 
 -- vim.keymap.set("n", "<S-k>", vim.lsp.buf.signature_help, { buffer = true })
 
-vim.keymap.set("n", "gm", funcs.open_man, { desc = "Open man page in new tab" })
+vim.keymap.set("n", "<leader>gm", funcs.open_man, { desc = "Open man page in new tab" })

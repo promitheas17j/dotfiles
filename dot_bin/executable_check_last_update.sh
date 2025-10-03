@@ -1,15 +1,19 @@
 #!/bin/zsh
 
-last_upgrade_date=$(grep -m 1 'full system upgrade' /var/log/pacman.log | cut -d ' ' -f 1 | tr -d '[]')
-last_upgrade_sec=$(date --date="$last_upgrade_date" +%s) # Convert to UNIX timestamp
+GREEN='\033[92m'
+YELLOW='\033[93m'
+RED='\033[91m'
+RESET='\033[0m'
 
-last_upgrade_sec=$(date -d "$last_upgrade_date" +%s)
-now_sec=$(date +%s)
+# Check if there are available updates for packages
+num_packages_to_update=$(checkupdates | wc -l)
 
-days_since=$(( (now_sec - last_upgrade_sec) / 86400 ))
-
-if (( days_since > 3 )); then
-	echo "Days since last update: $days_since day(s)" >> /dev/tty
+if (( num_packages_to_update >= 0 && num_packages_to_update <= 20 )); then
+	echo -e "${GREEN}Available updates: $num_packages_to_update${RESET}" >> /dev/tty
+elif (( num_packages_to_update > 20 && num_packages_to_update <= 50 )); then
+	echo -e "${YELLOW}Available updates: $num_packages_to_update${RESET}" >> /dev/tty
+else
+	echo -e "${RED}Available updates: $num_packages_to_update${RESET}" >> /dev/tty
 fi
 
 # Kernel version check
@@ -20,5 +24,5 @@ running_kernel_base=$(echo "$running_kernel" | cut -d '-' -f1)
 
 if [[ "$running_kernel_base" != "$installed_kernel" ]];
 then
-	echo "Kernel mismatch detected. Reboot recommended." >> /dev/tty
+	echo -e "${RED}Kernel mismatch detected. Reboot recommended.${RESET}" >> /dev/tty
 fi

@@ -159,3 +159,4 @@ map gc cd ~/.config/ # Change directory to ~/.config/
 map gb cd ~/.bin/ # Change directory to ~/.bin/
 map gG cd ~/Games/ # Change directory to ~/Games/
 map gr cd / # Change directory to / (root dir)
+map gt cd ~/temp/ # Change directory to ~/temp/

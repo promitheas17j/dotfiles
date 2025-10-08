@@ -37,6 +37,7 @@
 .config/copyq/*.lock*
 .config/copyq/*.pub*
 .confiig/hexchat/*
+.confiig/gamemode.ini
 
 # But do not ignore these files
 !.config/hexchat/colors.conf

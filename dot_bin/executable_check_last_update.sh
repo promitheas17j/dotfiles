@@ -6,7 +6,8 @@ RED='\033[91m'
 RESET='\033[0m'
 
 # Check if there are available updates for packages
-num_packages_to_update=$(checkupdates | wc -l)
+num_packages_to_update=$(yay -Qu | wc -l)
+# num_packages_to_update=$(checkupdates | wc -l)
 
 if (( num_packages_to_update >= 0 && num_packages_to_update <= 20 )); then
 	echo -e "${GREEN}Available updates: $num_packages_to_update${RESET}" >> /dev/tty

@@ -23,13 +23,13 @@ $HOME/.config/polybar/launch.sh
 setxkbmap us
 $HOME/.bin/remap-caps-esc
 
-bspc config border_width         2
-bspc config window_gap           10
+bspc config border_width		 2
+bspc config window_gap			 10
 # bspc config 
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config split_ratio			 0.52
+bspc config borderless_monocle	 true
+bspc config gapless_monocle		 true
 
 # Dracula theme
 bspc config normal_border_color "#44475a"
@@ -46,6 +46,11 @@ then
 	xrandr --output HDMI-A-1 --mode 1920x1080 --rotate inverted --above HDMI-A-0
 	bspc monitor HDMI-A-0 -d 1 2 3 4 5
 	bspc monitor HDMI-A-1 -d 6 7 8 9 0
+
+	# bspc monitor -a hidden
+	# bspc desktop hidden --remove-from-stack
+	# bspc monitor -a hidden
+	# bspc desktop hidden --unplug
 	
 	# pgrep -x polybar > /dev/null || $HOME/.config/polybar/launch.sh
 
@@ -73,11 +78,24 @@ else
 	$HOME/.fehbg & 
 fi
 
+# Ensure hidden desktop exists and is detached
+if ! bspc query -D --names | grep -qx "" >/dev/null 2>&1; then
+	# Temporarily attach to the first monitor, then unplug immediately
+	bspc query -M | head -n1 | xargs -I{} bspc monitor {} -a hidden
+	bspc desktop hidden --unplug
+	bspc desktop hidden --rename ""
+fi
+
+# Ensure hidden desktop exists and is detached
+# if ! bspc query -D --names | grep -qx "hidden"; then
+# 	bspc monitor -a hidden
+# 	bspc desktop hidden --unplug
+# fi
 
 # Make sure theme cursor is shown when mouse is not over a window, instead of the standard default one
 xsetroot -cursor_name left_ptr
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on

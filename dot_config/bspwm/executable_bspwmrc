@@ -103,6 +103,12 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 bspc rule -a Passy state=tiled
 
+# Rule to keep Eve Online clients fullscreen and on the 'below' layer
+bspc rule -a "steam_app_8500" state=fullscreen layer=below border=off focus=on
+
+# Rule to keep RIFT intel tool floating
+bspc rule -a "dev-nohus-rift-MainKt" state=floating layer=above
+
 bspc rule -a scpad sticky=on state=floating rectangle=1896x400+10+50
 
 $HOME/.bin/parse_keybinds.sh

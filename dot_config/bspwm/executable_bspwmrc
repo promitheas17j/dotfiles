@@ -78,33 +78,25 @@ else
 	$HOME/.fehbg & 
 fi
 
-# Ensure hidden desktop exists and is detached
 if ! bspc query -D --names | grep -qx "" >/dev/null 2>&1; then
-	# Temporarily attach to the first monitor, then unplug immediately
 	bspc query -M | head -n1 | xargs -I{} bspc monitor {} -a hidden
 	bspc desktop hidden --unplug
 	bspc desktop hidden --rename ""
 fi
 
-# Ensure hidden desktop exists and is detached
-# if ! bspc query -D --names | grep -qx "hidden"; then
-# 	bspc monitor -a hidden
-# 	bspc desktop hidden --unplug
-# fi
-
 # Make sure theme cursor is shown when mouse is not over a window, instead of the standard default one
 xsetroot -cursor_name left_ptr
 
-# bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 bspc rule -a Passy state=tiled
 
+# Exception for the Eve Online launcher so its not affected by the rule below
+# bspc rule -a "steam_app_8500" -o name="EVE Launcher" state=tiled layer=normal lockedState=on
+bspc rule -a "steam_app_8500:steam_app_8500:EVE Launcher" state=tiled layer=normal
+
 # Rule to keep Eve Online clients fullscreen and on the 'below' layer
-bspc rule -a "steam_app_8500" state=fullscreen layer=below border=off focus=on
+# bspc rule -a "steam_app_8500" -o name="EVE" state=fullscreen layer=below border=off focus=on
+bspc rule -a "steam_app_8500:steam_app_8500:EVE -*" state=fullscreen layer=below
 
 # Rule to keep RIFT intel tool floating
 bspc rule -a "dev-nohus-rift-MainKt" state=floating layer=above

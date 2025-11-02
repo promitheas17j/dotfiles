@@ -160,6 +160,10 @@ super + r
 super + shift + comma
 	sh -c 'if dunstctl is-paused | grep -q "true"; then dunstctl set-paused false; notify-send -t 2500 "Notifications enabled"; else notify-send -t 2500 "Notifications disabled"; sleep 2.5; dunstctl set-paused true; fi'
 
+# super + alt + comma
+# 	notify-send "Notification history"
+# 	dunstctl history
+
 # Launch a searchable list of keybinds (shortcuts)
 super + alt + y
 	rofi -m 1 -dmenu -i -markup-rows -no-show-icons -fuzzy -input /home/mart/.keybinds_list -theme-str 'window \{width: 80%; height: 60%;\}' -p "Search Keybinds"
@@ -168,3 +172,22 @@ super + alt + y
 super + alt + t
 	alacritty --hold -e neofetch
 	## hold option seems not to work through rofi
+	# rofi -dmenu -i -fuzzy -p "Toggle Plugin" -mesg "Toggle visibility of LMMS plugin window" <<< "$(toggle-lmms-plugins.sh)" | xargs -r toggle-lmms-plugins.sh
+
+super + alt + m
+	$HOME/.bin/bspwm-minimise.sh
+
+super + shift + m
+	$HOME/.bin/bspwm-restore.sh
+
+# Toggle visibility of Vitalium VST for LMMS
+super + alt + v
+	# echo "Display: $PATH" >> /tmp/toggle-lmms.log
+	# toggle-vitalium.sh && echo "super + alt + F12 works" > ~/toggle-lmms.log
+	# toggle-lmms-plugins.sh
+	# rofi -dmenu -i -fuzzy -p "Toggle Plugin" -mesg "Toggle visibility of LMMS plugin window" < toggle-lmms-plugins.sh | xargs -r toggle-lmms-plugins.sh
+	# notify-send "Toggle plugin" "Launching rofi"
+	# rofi -no-fork -dmenu -i -fuzzy -p "Toggle Plugin" -mesg "Toggle visibility of LMMS plugin window" <<< "$(toggle-lmms-plugins.sh)" | xargs -r toggle-lmms-plugins.sh # > /tmp/toggle-lmms-plugins.log
+	rofi -m 1 -dmenu -i -markup-rows -no-show-icons -fuzzy -p "Test rofi"
+	# notify-send "Toggle plugin" "Finished"
+	# toggle-lmms-plugins-debug.sh

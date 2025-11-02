@@ -19,6 +19,7 @@
 include-file = $HOME/.config/polybar/colors
 include-file = $HOME/.config/polybar/modules
 
+
 [bar/bottom]
 bottom = true
 monitor = HDMI-A-0
@@ -45,8 +46,9 @@ separator = |
 separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
+font-1 = Font Awesome 7 Free:style=Solid:pixelsize=11;2
 
-modules-left = bspwm xkeyboard pulseaudio
+modules-left = bspwm xkeyboard audio-toggle pulseaudio
 modules-center = appname
 modules-right = date 
 ; wlan eth removed from left of date module
@@ -91,6 +93,7 @@ separator = |
 separator-foreground = ${colors.semi-trans-cyan}
 
 font-0 = monospace;2
+font-1 = Font Awesome 7 Free:style=Solid:pixelsize=11;2
 
 modules-left = bspwm filesystem_double cpu memory
 # move date module back to right once tray becomes a module

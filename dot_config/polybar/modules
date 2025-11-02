@@ -164,3 +164,10 @@ type = internal/tray
 tray-padding = 3px
 tray-size = 60%
 format-margin = 5px
+
+[module/audio-toggle]
+type = custom/script
+exec = $HOME/.bin/audio_toggle.sh
+tail = true
+click-left = $HOME/.bin/audio_toggle.sh toggle
+label = %output%

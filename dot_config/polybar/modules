@@ -179,3 +179,4 @@ interval = 1
 format = <label>
 label = %output%
 click-left = $HOME/.bin/temperatures.sh toggle
+label-underline = ${colors.yellow}

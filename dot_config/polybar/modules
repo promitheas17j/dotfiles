@@ -171,3 +171,11 @@ exec = $HOME/.bin/audio_toggle.sh
 tail = true
 click-left = $HOME/.bin/audio_toggle.sh toggle
 label = %output%
+
+[module/temperatures]
+type = custom/script
+exec = $HOME/.bin/temperatures.sh
+interval = 1
+format = <label>
+label = %output%
+click-left = $HOME/.bin/temperatures.sh toggle

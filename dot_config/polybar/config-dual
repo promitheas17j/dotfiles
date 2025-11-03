@@ -1,6 +1,5 @@
 ;==========================================================
 ;
-;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
 ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
 ;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
@@ -95,7 +94,7 @@ separator-foreground = ${colors.semi-trans-cyan}
 font-0 = monospace;2
 font-1 = Font Awesome 7 Free:style=Solid:pixelsize=11;2
 
-modules-left = bspwm filesystem_double cpu memory
+modules-left = bspwm filesystem_double cpu memory temperatures
 # move date module back to right once tray becomes a module
 # xwindow
 modules-center = appname

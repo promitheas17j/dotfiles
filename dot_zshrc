@@ -181,6 +181,7 @@ remind() {
 		echo '		remind "Meeting" at 1130'
 		echo '		remind list'
 		echo '		remind clear'
+		echo '		remind delete 12'
 		echo '		remind help'
 		echo
 		return
@@ -192,22 +193,43 @@ remind() {
 		return
 	fi
 
-	# Run commands: list, clear
-	if [[ COUNT -eq 1 ]]; then
+	# Run commands: list, clear, delete (with virtual IDs)
+	if [[ $COUNT -eq 1 || $COUNT -eq 2 ]]; then
 		if [[ "$COMMAND" == "list" ]]; then
-			# at -l
-			# atq | awk '{print $1}' | xargs -I{} at -c {} | grep notify-send
-			atq | while read -r job_id day month num time rest; do
-				message=$(at -c "$job_id" | grep notify-send | sed -E "s/notify-send '(.*)' 'Reminder' -u critical/\1/")
-				date_str=$(LC_ALL=C date -d "$day $month $num $time $year" + "%Y-%m-%d %H:%M:%S" 2>/dev/null)
-				printf "%s %s - %s\n" "$day" "$time" "$message"
-			done | sort
+			echo "ID | AT-ID | TIME             | MESSAGE"
+			echo "---+-------+------------------+------------------------------"
+			local idx=0
+			atq | sort -k6,6 -k3,3M -k4,4n -k5,5 | while read -r job_id day month num time rest; do
+				message=$(at -c "$job_id" | grep notify-send | sed -E "s/.*notify-send '(.*)' 'Reminder'.*/\1/")
+				printf "%-2s | %-5s | %-16s | %s\n" "$idx" "$job_id" "$day $time" "$message"
+				idx=$((idx+1))
+			done
+			return
 		elif [[ "$COMMAND" == "clear" ]]; then
-			at -r $(atq | cut -f1)
+			at -r $(atq | cut -f1) 2>/dev/null
+			echo "All reminders cleared."
+			return
+		elif [[ "$COMMAND" == "delete" || "$COMMAND" == "del" ]]; then
+			if [[ $COUNT -lt 2 ]]; then
+				echo "Usage: remind delete <ID>"
+				return
+			fi
+			local del_index="$2"
+			local sorted_jobs
+			sorted_jobs=$(atq | sort -k6,6 -k3,3M -k4,4n -k5,5)
+			local job_id
+			job_id=$(echo "$sorted_jobs" | awk "NR==$((del_index+1)){print \$1}")
+			if [[ -z "$job_id" ]]; then
+				echo "No reminder found with ID $del_index."
+				return
+			fi
+			at -r "$job_id" 2>/dev/null
+			echo "Deleted reminder $del_index (job $job_id)."
+			return
 		else
 			echo "remind: unknown command $COMMAND. Type 'remind' without any parameters to see syntax."
+			return
 		fi
-		return
 	fi
 
 	# Ensure enough arguments are provided before shifting

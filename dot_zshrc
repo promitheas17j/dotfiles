@@ -115,6 +115,8 @@ alias checkhist="history | grep -e 'pacman -S\s' -e 'pacman -R\s' -e 'yay -S\s' 
 alias ednv="cd $HOME/.config/nvim/ && nv ."
 alias edqa="cd $HOME/Projects/quickarch && nv ."
 alias Y2025="echo 'The year of the linux desktop'"
+alias cat="bat"
+alias cat_orig="/usr/bin/cat"
 
 # xdg-mime aliases to make querying and setting default apps by filetype easier
 alias xqf="xdg-mime query filetype" # Queries the xdg name of a filetype e.g. image/png
@@ -270,5 +272,7 @@ export INFOPATH=/opt/texlive/2025/texmf-dist/doc/info:$INFOPATH
 export TEXMFLOCAL=/opt/texlive/2025/texmf-local
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --preview='bat --color=always {}'"
 
 check_last_update.sh

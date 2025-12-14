@@ -25,8 +25,8 @@ CASE_SENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# zstyle ':omz:update' mode auto	  # update automatically without asking
+zstyle ':omz:update' mode reminder	# just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -74,6 +74,7 @@ plugins=(
 	git
 	zsh-autosuggestions
 )
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -125,17 +126,17 @@ alias xsd="xdg-mime default" # Sets the default app. Should have the form xsd ap
 
 # Set less as manpager, and theme it with dracula
 #location of less choose or modify depending on your system
-export MANPAGER="/usr/bin/less -s -M +Gg" 		#standard linux
+export MANPAGER="/usr/bin/less -s -M +Gg"		#standard linux
 
 #man-page colors
-export LESS_TERMCAP_mb=$'\e[1;31m'      # begin bold
-export LESS_TERMCAP_md=$'\e[1;34m'      # begin blink
-export LESS_TERMCAP_so=$'\e[01;45;37m'  # begin reverse video
-export LESS_TERMCAP_us=$'\e[01;36m'     # begin underline
-export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
-export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
-export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
-export GROFF_NO_SGR=1                   # for konsole
+export LESS_TERMCAP_mb=$'\e[1;31m'		# begin bold
+export LESS_TERMCAP_md=$'\e[1;34m'		# begin blink
+export LESS_TERMCAP_so=$'\e[01;45;37m'	# begin reverse video
+export LESS_TERMCAP_us=$'\e[01;36m'		# begin underline
+export LESS_TERMCAP_me=$'\e[0m'			# reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'			# reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'			# reset underline
+export GROFF_NO_SGR=1					# for konsole
 
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
@@ -198,7 +199,7 @@ remind() {
 	# Run commands: list, clear, delete (with virtual IDs)
 	if [[ $COUNT -eq 1 || $COUNT -eq 2 ]]; then
 		if [[ "$COMMAND" == "list" ]]; then
-			echo "ID | AT-ID | TIME             | MESSAGE"
+			echo "ID | AT-ID | TIME				| MESSAGE"
 			echo "---+-------+------------------+------------------------------"
 			local idx=0
 			atq | sort -k6,6 -k3,3M -k4,4n -k5,5 | while read -r job_id day month num time rest; do
@@ -274,5 +275,30 @@ export TEXMFLOCAL=/opt/texlive/2025/texmf-local
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --preview='bat --color=always {}'"
+
+# prompt_exit_status and build_prompt are functions for the agnoster theme to build the prompt. build_prompt exists in its original form in $HOME/.oh-my-zsh/themes/agnoster.zsh-theme. prompt_exit_status is my own addition.
+prompt_exit_status() {
+	local exit_code=$RETVAL
+	if [[ $exit_code -eq 0 ]]; then
+		prompt_segment black green "[$exit_code]"
+	else
+		prompt_segment black red "[$exit_code]"
+	fi
+}
+
+## Main prompt
+build_prompt() {
+	RETVAL=$?
+	prompt_virtualenv
+	prompt_aws
+	prompt_terraform
+	prompt_context
+	prompt_exit_status
+	prompt_dir
+	prompt_git
+	prompt_bzr
+	prompt_hg
+	prompt_end
+}
 
 check_last_update.sh

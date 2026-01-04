@@ -87,6 +87,49 @@ fi
 # Make sure theme cursor is shown when mouse is not over a window, instead of the standard default one
 xsetroot -cursor_name left_ptr
 
+bspc rule -a org.mozilla.Thunderbird desktop=6 follow=off -o
+bspc rule -a discord desktop=9 follow=off focus=off locked=on
+# bspc rule -a steam desktop=2 -o
+
+pkill thunderbird
+pkill discord
+pkill steam
+
+thunderbird &
+discord &
+# sleep 2 && discord &
+sleep 1
+bspc desktop 6 -f
+steam &
+
+(
+# Spawn steam on the desktop that is focused at boot (dekstop 1), and wait for the login window to close (login window has _NET_WM_NAME="Sign in to Steam". Once that closes, the main steam window should open (_NET_WM_NAME="Steam"), and once it does have bspwm move it to desktop 2, then if needed refocus desktop 1)
+TARGET_DESKTOP=2
+MAIN_DESKTOP=1
+
+while true; do
+	WIN_ID=$(bspc query -N -n .window | while read wid; do
+		CLASS=$(xprop -id "$wid" WM_CLASS 2>/dev/null | awk -F '"' '{print $4}')
+		TITLE=$(xprop -id "$wid" _NET_WM_NAME 2>/dev/null | cut -d '"' -f2)
+		if [ "$CLASS" = "steam" ] && [ "$TITLE" = "Steam" ]; then
+			echo "$wid"
+			break
+		fi
+	done)
+
+	if [ -n "$WIN_ID" ]; then
+		break
+	fi
+
+	sleep 0.5
+done
+
+bspc node "$WIN_ID" -d "$TARGET_DESKTOP"
+# bspc node "$WIN_ID" -l locked
+
+bspc desktop "$MAIN_DESKTOP" -f
+) &
+
 bspc rule -a Zathura state=tiled
 bspc rule -a Passy state=tiled
 

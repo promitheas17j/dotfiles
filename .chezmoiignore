@@ -23,6 +23,7 @@
 .config/Ledger\ Live/**
 .config/hexchat/**
 .config/unity3d/**
+.config/godot/
 
 # Files
 .config/chezmoi/chezmoistate.boltdb

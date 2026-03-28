@@ -123,7 +123,7 @@ interval = 1
 
 date = %T
 # %T equivalent to "%H:%M%:S" (the ISO 8601 time format)
-date-alt = %a - %F
+date-alt = %a - %F : %T
 # %F equivalent to "%Y-%m-%d" (the ISO 8601 date format)
 
 label = %date%

@@ -37,8 +37,9 @@
 .config/copyq/*.ini*
 .config/copyq/*.lock*
 .config/copyq/*.pub*
-.confiig/hexchat/*
-.confiig/gamemode.ini
+.config/hexchat/*
+.config/gamemode.ini
+.config/bspwm/eve_launcher_guard.sh*
 
 # But do not ignore these files
 !.config/hexchat/colors.conf

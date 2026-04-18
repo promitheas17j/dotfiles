@@ -115,7 +115,7 @@ alias cme="chezmoi edit"
 alias checkhist="history | grep -e 'pacman -S\s' -e 'pacman -R\s' -e 'yay -S\s' -e 'yay -R\s' | tail -n 50 > ~/history_installed"
 alias ednv="cd $HOME/.config/nvim/ && nv ."
 alias edqa="cd $HOME/Projects/quickarch && nv ."
-alias Y2025="echo 'The year of the linux desktop'"
+alias Y2026="echo 'The year of the linux desktop'"
 alias cat="bat"
 alias cat_orig="/usr/bin/cat"
 
